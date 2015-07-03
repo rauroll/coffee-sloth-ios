@@ -7,8 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		473E92621B3C7DCA000F3BAD /* coffee1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */; };
+		473E92641B3C7DCA000F3BAD /* coffee2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */; };
+		473E92661B3C7DCA000F3BAD /* coffee3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E92411B3C7DCA000F3BAD /* coffee3.mp3 */; };
+		473E92681B3C7DCA000F3BAD /* death.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E92431B3C7DCA000F3BAD /* death.mp3 */; };
+		473E926A1B3C7DCA000F3BAD /* flip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E92451B3C7DCA000F3BAD /* flip.mp3 */; };
+		473E926C1B3C7DCA000F3BAD /* owl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E92471B3C7DCA000F3BAD /* owl.mp3 */; };
+		473E926E1B3C7DCA000F3BAD /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E92491B3C7DCA000F3BAD /* theme.mp3 */; };
+		473E92701B3C7DCA000F3BAD /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E924C1B3C7DCA000F3BAD /* back.png */; };
+		473E92711B3C7DCA000F3BAD /* bg-far.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E924E1B3C7DCA000F3BAD /* bg-far.png */; };
+		473E92721B3C7DCA000F3BAD /* bg-mid.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E924F1B3C7DCA000F3BAD /* bg-mid.png */; };
+		473E92731B3C7DCA000F3BAD /* floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E92501B3C7DCA000F3BAD /* floor.png */; };
+		473E92741B3C7DCA000F3BAD /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E92511B3C7DCA000F3BAD /* coffee.png */; };
+		473E92751B3C7DCA000F3BAD /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E92521B3C7DCA000F3BAD /* logo.png */; };
+		473E92761B3C7DCA000F3BAD /* main-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 473E92531B3C7DCA000F3BAD /* main-background.jpg */; };
+		473E92771B3C7DCA000F3BAD /* muted.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E92541B3C7DCA000F3BAD /* muted.png */; };
+		473E92781B3C7DCA000F3BAD /* owl1.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E92561B3C7DCA000F3BAD /* owl1.png */; };
+		473E92791B3C7DCA000F3BAD /* owl2.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E92571B3C7DCA000F3BAD /* owl2.png */; };
+		473E927A1B3C7DCA000F3BAD /* owl3.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E92581B3C7DCA000F3BAD /* owl3.png */; };
+		473E927B1B3C7DCA000F3BAD /* slothsprite1.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E925A1B3C7DCA000F3BAD /* slothsprite1.png */; };
+		473E927C1B3C7DCA000F3BAD /* slothsprite2.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E925B1B3C7DCA000F3BAD /* slothsprite2.png */; };
+		473E927D1B3C7DCA000F3BAD /* slothsprite3.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E925C1B3C7DCA000F3BAD /* slothsprite3.png */; };
+		473E927E1B3C7DCA000F3BAD /* slothsprite4.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E925D1B3C7DCA000F3BAD /* slothsprite4.png */; };
+		473E927F1B3C7DCA000F3BAD /* slothsprite_nofire.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E925E1B3C7DCA000F3BAD /* slothsprite_nofire.png */; };
+		473E92801B3C7DCA000F3BAD /* unmuted.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E925F1B3C7DCA000F3BAD /* unmuted.png */; };
+		473E92811B3C7DCA000F3BAD /* logo.psd in Resources */ = {isa = PBXBuildFile; fileRef = 473E92611B3C7DCA000F3BAD /* logo.psd */; };
+		473E92831B3C8995000F3BAD /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473E92821B3C8995000F3BAD /* Background.swift */; };
 		477288021B3C6BA9009BA1C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288011B3C6BA9009BA1C5 /* AppDelegate.swift */; };
-		477288041B3C6BA9009BA1C5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 477288031B3C6BA9009BA1C5 /* GameScene.sks */; };
 		477288061B3C6BA9009BA1C5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288051B3C6BA9009BA1C5 /* GameScene.swift */; };
 		477288081B3C6BA9009BA1C5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288071B3C6BA9009BA1C5 /* GameViewController.swift */; };
 		4772880B1B3C6BA9009BA1C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477288091B3C6BA9009BA1C5 /* Main.storyboard */; };
@@ -16,6 +41,7 @@
 		477288101B3C6BA9009BA1C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4772880E1B3C6BA9009BA1C5 /* LaunchScreen.storyboard */; };
 		4772881B1B3C6BA9009BA1C5 /* Coffee_SlothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772881A1B3C6BA9009BA1C5 /* Coffee_SlothTests.swift */; };
 		477288261B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288251B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift */; };
+		477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288331B3C6DEF009BA1C5 /* Sloth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +62,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee1.mp3; sourceTree = "<group>"; };
+		473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee2.mp3; sourceTree = "<group>"; };
+		473E92411B3C7DCA000F3BAD /* coffee3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee3.mp3; sourceTree = "<group>"; };
+		473E92431B3C7DCA000F3BAD /* death.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = death.mp3; sourceTree = "<group>"; };
+		473E92451B3C7DCA000F3BAD /* flip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flip.mp3; sourceTree = "<group>"; };
+		473E92471B3C7DCA000F3BAD /* owl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = owl.mp3; sourceTree = "<group>"; };
+		473E92491B3C7DCA000F3BAD /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
+		473E924C1B3C7DCA000F3BAD /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		473E924E1B3C7DCA000F3BAD /* bg-far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-far.png"; sourceTree = "<group>"; };
+		473E924F1B3C7DCA000F3BAD /* bg-mid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-mid.png"; sourceTree = "<group>"; };
+		473E92501B3C7DCA000F3BAD /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor.png; sourceTree = "<group>"; };
+		473E92511B3C7DCA000F3BAD /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
+		473E92521B3C7DCA000F3BAD /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		473E92531B3C7DCA000F3BAD /* main-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "main-background.jpg"; sourceTree = "<group>"; };
+		473E92541B3C7DCA000F3BAD /* muted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muted.png; sourceTree = "<group>"; };
+		473E92561B3C7DCA000F3BAD /* owl1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = owl1.png; path = asset/image/owl/owl1.png; sourceTree = "<group>"; };
+		473E92571B3C7DCA000F3BAD /* owl2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = owl2.png; path = asset/image/owl/owl2.png; sourceTree = "<group>"; };
+		473E92581B3C7DCA000F3BAD /* owl3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = owl3.png; path = asset/image/owl/owl3.png; sourceTree = "<group>"; };
+		473E925A1B3C7DCA000F3BAD /* slothsprite1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slothsprite1.png; path = asset/image/sloth/slothsprite1.png; sourceTree = "<group>"; };
+		473E925B1B3C7DCA000F3BAD /* slothsprite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slothsprite2.png; path = asset/image/sloth/slothsprite2.png; sourceTree = "<group>"; };
+		473E925C1B3C7DCA000F3BAD /* slothsprite3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slothsprite3.png; path = asset/image/sloth/slothsprite3.png; sourceTree = "<group>"; };
+		473E925D1B3C7DCA000F3BAD /* slothsprite4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slothsprite4.png; path = asset/image/sloth/slothsprite4.png; sourceTree = "<group>"; };
+		473E925E1B3C7DCA000F3BAD /* slothsprite_nofire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slothsprite_nofire.png; path = asset/image/sloth/slothsprite_nofire.png; sourceTree = "<group>"; };
+		473E925F1B3C7DCA000F3BAD /* unmuted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmuted.png; sourceTree = "<group>"; };
+		473E92611B3C7DCA000F3BAD /* logo.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.psd; sourceTree = "<group>"; };
+		473E92821B3C8995000F3BAD /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		477287FE1B3C6BA9009BA1C5 /* Coffee Sloth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coffee Sloth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		477288011B3C6BA9009BA1C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		477288031B3C6BA9009BA1C5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		477288051B3C6BA9009BA1C5 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		477288071B3C6BA9009BA1C5 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4772880A1B3C6BA9009BA1C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +102,7 @@
 		477288211B3C6BA9009BA1C5 /* Coffee SlothUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coffee SlothUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		477288251B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee_SlothUITests.swift; sourceTree = "<group>"; };
 		477288271B3C6BA9009BA1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		477288331B3C6DEF009BA1C5 /* Sloth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sloth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +130,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		473E923B1B3C7DCA000F3BAD /* asset */ = {
+			isa = PBXGroup;
+			children = (
+				473E923C1B3C7DCA000F3BAD /* audio */,
+				473E924B1B3C7DCA000F3BAD /* image */,
+				473E92601B3C7DCA000F3BAD /* psd */,
+			);
+			path = asset;
+			sourceTree = "<group>";
+		};
+		473E923C1B3C7DCA000F3BAD /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */,
+				473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */,
+				473E92411B3C7DCA000F3BAD /* coffee3.mp3 */,
+				473E92431B3C7DCA000F3BAD /* death.mp3 */,
+				473E92451B3C7DCA000F3BAD /* flip.mp3 */,
+				473E92471B3C7DCA000F3BAD /* owl.mp3 */,
+				473E92491B3C7DCA000F3BAD /* theme.mp3 */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		473E924B1B3C7DCA000F3BAD /* image */ = {
+			isa = PBXGroup;
+			children = (
+				473E924C1B3C7DCA000F3BAD /* back.png */,
+				473E924D1B3C7DCA000F3BAD /* bluetheme */,
+				473E92511B3C7DCA000F3BAD /* coffee.png */,
+				473E92521B3C7DCA000F3BAD /* logo.png */,
+				473E92531B3C7DCA000F3BAD /* main-background.jpg */,
+				473E92541B3C7DCA000F3BAD /* muted.png */,
+				473E925F1B3C7DCA000F3BAD /* unmuted.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		473E924D1B3C7DCA000F3BAD /* bluetheme */ = {
+			isa = PBXGroup;
+			children = (
+				473E924E1B3C7DCA000F3BAD /* bg-far.png */,
+				473E924F1B3C7DCA000F3BAD /* bg-mid.png */,
+				473E92501B3C7DCA000F3BAD /* floor.png */,
+			);
+			path = bluetheme;
+			sourceTree = "<group>";
+		};
+		473E92601B3C7DCA000F3BAD /* psd */ = {
+			isa = PBXGroup;
+			children = (
+				473E92611B3C7DCA000F3BAD /* logo.psd */,
+			);
+			path = psd;
+			sourceTree = "<group>";
+		};
+		473E92841B3C8A62000F3BAD /* sprites.atlas */ = {
+			isa = PBXGroup;
+			children = (
+				473E92561B3C7DCA000F3BAD /* owl1.png */,
+				473E92571B3C7DCA000F3BAD /* owl2.png */,
+				473E92581B3C7DCA000F3BAD /* owl3.png */,
+				473E925A1B3C7DCA000F3BAD /* slothsprite1.png */,
+				473E925B1B3C7DCA000F3BAD /* slothsprite2.png */,
+				473E925C1B3C7DCA000F3BAD /* slothsprite3.png */,
+				473E925D1B3C7DCA000F3BAD /* slothsprite4.png */,
+				473E925E1B3C7DCA000F3BAD /* slothsprite_nofire.png */,
+			);
+			name = sprites.atlas;
+			sourceTree = "<group>";
+		};
 		477287F51B3C6BA9009BA1C5 = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +224,14 @@
 		477288001B3C6BA9009BA1C5 /* Coffee Sloth */ = {
 			isa = PBXGroup;
 			children = (
+				473E92841B3C8A62000F3BAD /* sprites.atlas */,
 				477288011B3C6BA9009BA1C5 /* AppDelegate.swift */,
-				477288031B3C6BA9009BA1C5 /* GameScene.sks */,
+				473E92821B3C8995000F3BAD /* Background.swift */,
 				477288051B3C6BA9009BA1C5 /* GameScene.swift */,
 				477288071B3C6BA9009BA1C5 /* GameViewController.swift */,
+				477288331B3C6DEF009BA1C5 /* Sloth.swift */,
 				477288091B3C6BA9009BA1C5 /* Main.storyboard */,
+				473E923B1B3C7DCA000F3BAD /* asset */,
 				4772880C1B3C6BA9009BA1C5 /* Assets.xcassets */,
 				4772880E1B3C6BA9009BA1C5 /* LaunchScreen.storyboard */,
 				477288111B3C6BA9009BA1C5 /* Info.plist */,
@@ -234,10 +360,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				477288041B3C6BA9009BA1C5 /* GameScene.sks in Resources */,
+				473E92751B3C7DCA000F3BAD /* logo.png in Resources */,
+				473E927F1B3C7DCA000F3BAD /* slothsprite_nofire.png in Resources */,
+				473E92791B3C7DCA000F3BAD /* owl2.png in Resources */,
+				473E92801B3C7DCA000F3BAD /* unmuted.png in Resources */,
+				473E926C1B3C7DCA000F3BAD /* owl.mp3 in Resources */,
+				473E92701B3C7DCA000F3BAD /* back.png in Resources */,
+				473E92721B3C7DCA000F3BAD /* bg-mid.png in Resources */,
+				473E927D1B3C7DCA000F3BAD /* slothsprite3.png in Resources */,
+				473E927A1B3C7DCA000F3BAD /* owl3.png in Resources */,
+				473E92741B3C7DCA000F3BAD /* coffee.png in Resources */,
 				477288101B3C6BA9009BA1C5 /* LaunchScreen.storyboard in Resources */,
+				473E92711B3C7DCA000F3BAD /* bg-far.png in Resources */,
+				473E92781B3C7DCA000F3BAD /* owl1.png in Resources */,
 				4772880D1B3C6BA9009BA1C5 /* Assets.xcassets in Resources */,
+				473E926A1B3C7DCA000F3BAD /* flip.mp3 in Resources */,
+				473E92661B3C7DCA000F3BAD /* coffee3.mp3 in Resources */,
+				473E927B1B3C7DCA000F3BAD /* slothsprite1.png in Resources */,
+				473E926E1B3C7DCA000F3BAD /* theme.mp3 in Resources */,
+				473E92731B3C7DCA000F3BAD /* floor.png in Resources */,
+				473E927C1B3C7DCA000F3BAD /* slothsprite2.png in Resources */,
+				473E927E1B3C7DCA000F3BAD /* slothsprite4.png in Resources */,
+				473E92641B3C7DCA000F3BAD /* coffee2.mp3 in Resources */,
+				473E92621B3C7DCA000F3BAD /* coffee1.mp3 in Resources */,
+				473E92761B3C7DCA000F3BAD /* main-background.jpg in Resources */,
+				473E92811B3C7DCA000F3BAD /* logo.psd in Resources */,
 				4772880B1B3C6BA9009BA1C5 /* Main.storyboard in Resources */,
+				473E92771B3C7DCA000F3BAD /* muted.png in Resources */,
+				473E92681B3C7DCA000F3BAD /* death.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +412,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */,
 				477288061B3C6BA9009BA1C5 /* GameScene.swift in Sources */,
 				477288081B3C6BA9009BA1C5 /* GameViewController.swift in Sources */,
 				477288021B3C6BA9009BA1C5 /* AppDelegate.swift in Sources */,
+				473E92831B3C8995000F3BAD /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +560,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.olliscodes.Coffee-Sloth";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -419,6 +572,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.olliscodes.Coffee-Sloth";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -489,6 +643,7 @@
 				4772882C1B3C6BA9009BA1C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4772882D1B3C6BA9009BA1C5 /* Build configuration list for PBXNativeTarget "Coffee SlothTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +652,7 @@
 				4772882F1B3C6BA9009BA1C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		477288301B3C6BA9009BA1C5 /* Build configuration list for PBXNativeTarget "Coffee SlothUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +661,7 @@
 				477288321B3C6BA9009BA1C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
