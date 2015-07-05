@@ -76,6 +76,21 @@ func angleBetweenPoints(first: CGPoint, second: CGPoint) -> CGFloat {
 }
 
 
+struct Queue<T> {
+    
+    var items = [T]()
+    
+    mutating func enqueue(item: T) {
+        items.append(item)
+    }
+    
+    mutating func dequeue(item: T) {
+        items.removeAtIndex(0)
+    }
+    
+}
+
+
 
 
 

@@ -45,8 +45,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    
+    
    
     override func update(currentTime: CFTimeInterval) {
+        
+        //tryAddingCoffee()
         if (lastTime == nil) {
             lastTime = currentTime
             return

@@ -21,9 +21,9 @@ class Sloth {
     
     // MOVEMENTS
     var accelerating = false
-    let speedLimit: CGFloat = 700
+    let speedLimit: CGFloat = 400
     
-    let accelerationForce: CGFloat = 500
+    let accelerationForce: CGFloat = 1500
     //var accelerationVector = CGPoint(x: 0, y: 0)
     
     var velocityScalar: CGFloat = 0
