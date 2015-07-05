@@ -8,10 +8,15 @@
 
 import SpriteKit
 
+
+
 class GameScene: SKScene {
     
     var background: Background!
     var lastTime: CFTimeInterval!
+    var speedCoefficient: CGFloat = 3
+    
+    var sloth: Sloth!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
@@ -23,7 +28,9 @@ class GameScene: SKScene {
         anchorPoint = CGPoint(x: 0, y: 0)
         
         background = Background()
+        sloth = Sloth(size: size)
         
+        self.addChild(sloth.sprite)
         self.addChild(background)
         
         
@@ -38,6 +45,10 @@ class GameScene: SKScene {
         }
         let deltaTime = currentTime - lastTime
         lastTime = currentTime
-        background.update(deltaTime)
+        background.update(deltaTime, coeff: speedCoefficient)
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        speedCoefficient *= -1
     }
 }

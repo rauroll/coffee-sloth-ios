@@ -48,6 +48,7 @@ class GameViewController: UIViewController {
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         print("Rotated")
     }
+
     
 
     

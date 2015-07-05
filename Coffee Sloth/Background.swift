@@ -99,26 +99,30 @@ class Background: SKNode {
     
     func addNewBackgroundSpritesTo(node: SKNode) {
         let first = node.children.first!
+        let last = node.children.last!
         let spriteWidth = first.frame.width
         if first.position.x < spriteWidth * -1.5 {
             node.children.first?.removeFromParent()
             first.position.x = node.children.last!.position.x + spriteWidth
             node.addChild(first)
-        } else if first.position.x > spriteWidth * 1.5 {
+        } else if last.position.x > UIScreen.mainScreen().bounds.width + spriteWidth * 1.5 {
+            node.children.last?.removeFromParent()
+            last.position.x = node.children.first!.position.x - spriteWidth
+            node.insertChild(last, atIndex: 0)
             
         }
         
     }
     
-    func update(time: CFTimeInterval) {
-        var coeff = CGFloat(2)
+    func update(time: CFTimeInterval, coeff: CGFloat) {
+        var depth = CGFloat(1.5)
         let pixelsMoved = CGFloat(25) * CGFloat(time)
         for child in self.children {
             
             for sprite in child.children {
-                sprite.position.x -= pixelsMoved * coeff
+                sprite.position.x -= pixelsMoved * coeff * depth
             }
-            coeff *= 1.5
+            depth *= 1.5
             addNewBackgroundSpritesTo(child)
             print(pixelsMoved)
         }
