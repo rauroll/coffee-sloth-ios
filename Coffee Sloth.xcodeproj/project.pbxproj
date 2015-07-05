@@ -42,6 +42,7 @@
 		4772881B1B3C6BA9009BA1C5 /* Coffee_SlothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772881A1B3C6BA9009BA1C5 /* Coffee_SlothTests.swift */; };
 		477288261B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288251B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift */; };
 		477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288331B3C6DEF009BA1C5 /* Sloth.swift */; };
+		47BEE0891B4956BF00E03B66 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BEE0881B4956BF00E03B66 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		477288251B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee_SlothUITests.swift; sourceTree = "<group>"; };
 		477288271B3C6BA9009BA1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		477288331B3C6DEF009BA1C5 /* Sloth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sloth.swift; sourceTree = "<group>"; };
+		47BEE0881B4956BF00E03B66 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,11 +135,13 @@
 		473E923B1B3C7DCA000F3BAD /* asset */ = {
 			isa = PBXGroup;
 			children = (
+				473E92841B3C8A62000F3BAD /* sprites.atlas */,
 				473E923C1B3C7DCA000F3BAD /* audio */,
 				473E924B1B3C7DCA000F3BAD /* image */,
 				473E92601B3C7DCA000F3BAD /* psd */,
 			);
-			path = asset;
+			name = asset;
+			path = "Coffee Sloth/asset";
 			sourceTree = "<group>";
 		};
 		473E923C1B3C7DCA000F3BAD /* audio */ = {
@@ -199,6 +203,7 @@
 				473E925E1B3C7DCA000F3BAD /* slothsprite_nofire.png */,
 			);
 			name = sprites.atlas;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		477287F51B3C6BA9009BA1C5 = {
@@ -208,6 +213,7 @@
 				477288191B3C6BA9009BA1C5 /* Coffee SlothTests */,
 				477288241B3C6BA9009BA1C5 /* Coffee SlothUITests */,
 				477287FF1B3C6BA9009BA1C5 /* Products */,
+				473E923B1B3C7DCA000F3BAD /* asset */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,14 +230,13 @@
 		477288001B3C6BA9009BA1C5 /* Coffee Sloth */ = {
 			isa = PBXGroup;
 			children = (
-				473E92841B3C8A62000F3BAD /* sprites.atlas */,
+				47BEE0871B4956B100E03B66 /* Util */,
 				477288011B3C6BA9009BA1C5 /* AppDelegate.swift */,
 				473E92821B3C8995000F3BAD /* Background.swift */,
 				477288051B3C6BA9009BA1C5 /* GameScene.swift */,
 				477288071B3C6BA9009BA1C5 /* GameViewController.swift */,
 				477288331B3C6DEF009BA1C5 /* Sloth.swift */,
 				477288091B3C6BA9009BA1C5 /* Main.storyboard */,
-				473E923B1B3C7DCA000F3BAD /* asset */,
 				4772880C1B3C6BA9009BA1C5 /* Assets.xcassets */,
 				4772880E1B3C6BA9009BA1C5 /* LaunchScreen.storyboard */,
 				477288111B3C6BA9009BA1C5 /* Info.plist */,
@@ -255,6 +260,14 @@
 				477288271B3C6BA9009BA1C5 /* Info.plist */,
 			);
 			path = "Coffee SlothUITests";
+			sourceTree = "<group>";
+		};
+		47BEE0871B4956B100E03B66 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				47BEE0881B4956BF00E03B66 /* Helpers.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */,
+				47BEE0891B4956BF00E03B66 /* Helpers.swift in Sources */,
 				477288061B3C6BA9009BA1C5 /* GameScene.swift in Sources */,
 				477288081B3C6BA9009BA1C5 /* GameViewController.swift in Sources */,
 				477288021B3C6BA9009BA1C5 /* AppDelegate.swift in Sources */,

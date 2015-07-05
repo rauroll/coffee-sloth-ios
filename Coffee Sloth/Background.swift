@@ -50,29 +50,10 @@ class Background: SKNode {
         
 
         
-        
-        
-//        
-//        for tex in textures {
-//            var depth: CGFloat = -40
-//            print(UIScreen.mainScreen().bounds.width)
-//            for var i: CGFloat = 0; i < 2.0 + UIScreen.mainScreen().bounds.width / (tex.size().width * 2.0); ++i {
-//                let sprite = SKSpriteNode(texture: tex)
-//                sprite.setScale(2.0)
-//                sprite.zPosition = depth
-//                print(i*sprite.size.width)
-//                sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2)
-//                let moveSpriteAction = SKAction(named: <#T##String#>, duration: <#T##NSTimeInterval#>)
-//                self.addChild(sprite)
-//            }
-//            depth += 20
-//        }
-        
         self.addChild(farBgSprites)
         self.addChild(midBgSprites)
         self.addChild(floorBgSprites)
-        
-        print(self.children)
+
 
         
         
@@ -88,7 +69,6 @@ class Background: SKNode {
             let sprite = SKSpriteNode(texture: tex)
             sprite.setScale(2.0)
             sprite.zPosition = depth
-            print(i*sprite.size.width)
             sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2)
             node.addChild(sprite)
         }
@@ -114,17 +94,29 @@ class Background: SKNode {
         
     }
     
-    func update(time: CFTimeInterval, coeff: CGFloat) {
-        var depth = CGFloat(1.5)
-        let pixelsMoved = CGFloat(25) * CGFloat(time)
-        for child in self.children {
-            
-            for sprite in child.children {
-                sprite.position.x -= pixelsMoved * coeff * depth
-            }
-            depth *= 1.5
+    func update(time: CFTimeInterval, slothSpeedX: CGFloat) {
+        var depth: CGFloat = 0.125
+        
+        
+        
+        
+        for sprite in children[0].children {
+            sprite.position.x -= slothSpeedX * depth * CGFloat(time)
+        }
+        
+        depth = 0.3
+        for sprite in children[1].children {
+            sprite.position.x -= slothSpeedX * depth * CGFloat(time)
+        }
+        depth = 1
+        
+        for sprite in children[2].children {
+            sprite.position.x -= slothSpeedX * depth * CGFloat(time)
+        }
+
+        
+        for child in children {
             addNewBackgroundSpritesTo(child)
-            print(pixelsMoved)
         }
         
         
