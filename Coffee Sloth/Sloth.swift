@@ -21,9 +21,12 @@ class Sloth {
     
     // MOVEMENTS
     var accelerating = false
-    let speedLimit: CGFloat = 400
+    let speedLimit: CGFloat = 500
+    // 500
     
-    let accelerationForce: CGFloat = 1500
+    let accelerationForce: CGFloat = 2000
+    // 4000
+    
     //var accelerationVector = CGPoint(x: 0, y: 0)
     
     var velocityScalar: CGFloat = 0
@@ -79,6 +82,7 @@ class Sloth {
         sprite.physicsBody?.mass = 1
         
         
+        
         // Add masks (collision, contact, category)
         
         
@@ -127,19 +131,24 @@ class Sloth {
     
     func update(time: CFTimeInterval) {
         
-        let accv = accelerationVector() * CGFloat(time)
-        
+        var accv = CGVectorMake(0, 0)
         if (accelerating) {
-            if ((velocity + accv).length() < speedLimit) {
-                velocity.dx += accv.dx
-                velocity.dy += accv.dy
-            } else if (accv.dy < gravity) {
-                
-            }
-        } else {
-            velocity.dx -= airResistance * velocity.dx * CGFloat(time)
-            velocity.dy -= airResistance * velocity.dy * CGFloat(time) + gravity * CGFloat(time)
+            accv = accelerationVector() * CGFloat(time)
         }
+        
+        let g = CGVectorMake(0, -(gravity * CGFloat(time)))
+        var resultant = velocity + accv
+        
+        if (resultant.length() > speedLimit) {
+            resultant = (resultant.normalized() * speedLimit)
+        }
+        
+        velocity = resultant + g
+        
+        
+        
+        velocity.dx -= airResistance * velocity.dx * CGFloat(time)
+        velocity.dy -= airResistance * velocity.dy * CGFloat(time)
         
         
         sprite.position.y += velocity.dy * CGFloat(time)

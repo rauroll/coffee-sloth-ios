@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4705D0F21B49AE4A00869C25 /* SectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4705D0F11B49AE4A00869C25 /* SectionManager.swift */; };
-		4705D0F41B49AFC400869C25 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4705D0F31B49AFC400869C25 /* Coffee.swift */; };
+		472784481B4AC89100DBDF94 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472784471B4AC89100DBDF94 /* Section.swift */; };
+		4727844B1B4B158C00DBDF94 /* CoffeeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4727844A1B4B158C00DBDF94 /* CoffeeSection.swift */; };
 		473E92621B3C7DCA000F3BAD /* coffee1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */; };
 		473E92641B3C7DCA000F3BAD /* coffee2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */; };
 		473E92661B3C7DCA000F3BAD /* coffee3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E92411B3C7DCA000F3BAD /* coffee3.mp3 */; };
@@ -45,6 +46,8 @@
 		477288261B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288251B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift */; };
 		477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288331B3C6DEF009BA1C5 /* Sloth.swift */; };
 		47BEE0891B4956BF00E03B66 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BEE0881B4956BF00E03B66 /* Helpers.swift */; };
+		47D7F4631B4FC65C00F30C83 /* TestSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7F4621B4FC65C00F30C83 /* TestSection.swift */; };
+		47F9C8921B4ED7DA00D5ACAC /* EmptySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F9C8911B4ED7DA00D5ACAC /* EmptySection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +69,8 @@
 
 /* Begin PBXFileReference section */
 		4705D0F11B49AE4A00869C25 /* SectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionManager.swift; sourceTree = "<group>"; };
-		4705D0F31B49AFC400869C25 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		472784471B4AC89100DBDF94 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		4727844A1B4B158C00DBDF94 /* CoffeeSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeSection.swift; sourceTree = "<group>"; };
 		473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee1.mp3; sourceTree = "<group>"; };
 		473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee2.mp3; sourceTree = "<group>"; };
 		473E92411B3C7DCA000F3BAD /* coffee3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee3.mp3; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 		477288271B3C6BA9009BA1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		477288331B3C6DEF009BA1C5 /* Sloth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sloth.swift; sourceTree = "<group>"; };
 		47BEE0881B4956BF00E03B66 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		47D7F4621B4FC65C00F30C83 /* TestSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSection.swift; sourceTree = "<group>"; };
+		47F9C8911B4ED7DA00D5ACAC /* EmptySection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		472784491B4B155400DBDF94 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				4727844A1B4B158C00DBDF94 /* CoffeeSection.swift */,
+				47F9C8911B4ED7DA00D5ACAC /* EmptySection.swift */,
+				47D7F4621B4FC65C00F30C83 /* TestSection.swift */,
+			);
+			name = Sections;
+			sourceTree = "<group>";
+		};
 		473E923B1B3C7DCA000F3BAD /* asset */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,13 +250,13 @@
 		477288001B3C6BA9009BA1C5 /* Coffee Sloth */ = {
 			isa = PBXGroup;
 			children = (
+				472784491B4B155400DBDF94 /* Sections */,
 				47BEE0871B4956B100E03B66 /* Util */,
 				477288011B3C6BA9009BA1C5 /* AppDelegate.swift */,
 				473E92821B3C8995000F3BAD /* Background.swift */,
 				477288051B3C6BA9009BA1C5 /* GameScene.swift */,
 				477288071B3C6BA9009BA1C5 /* GameViewController.swift */,
 				477288331B3C6DEF009BA1C5 /* Sloth.swift */,
-				4705D0F31B49AFC400869C25 /* Coffee.swift */,
 				477288091B3C6BA9009BA1C5 /* Main.storyboard */,
 				4772880C1B3C6BA9009BA1C5 /* Assets.xcassets */,
 				4772880E1B3C6BA9009BA1C5 /* LaunchScreen.storyboard */,
@@ -272,6 +288,7 @@
 			children = (
 				47BEE0881B4956BF00E03B66 /* Helpers.swift */,
 				4705D0F11B49AE4A00869C25 /* SectionManager.swift */,
+				472784471B4AC89100DBDF94 /* Section.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -431,14 +448,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				472784481B4AC89100DBDF94 /* Section.swift in Sources */,
 				4705D0F21B49AE4A00869C25 /* SectionManager.swift in Sources */,
 				477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */,
+				47D7F4631B4FC65C00F30C83 /* TestSection.swift in Sources */,
 				47BEE0891B4956BF00E03B66 /* Helpers.swift in Sources */,
 				477288061B3C6BA9009BA1C5 /* GameScene.swift in Sources */,
+				4727844B1B4B158C00DBDF94 /* CoffeeSection.swift in Sources */,
 				477288081B3C6BA9009BA1C5 /* GameViewController.swift in Sources */,
+				47F9C8921B4ED7DA00D5ACAC /* EmptySection.swift in Sources */,
 				477288021B3C6BA9009BA1C5 /* AppDelegate.swift in Sources */,
 				473E92831B3C8995000F3BAD /* Background.swift in Sources */,
-				4705D0F41B49AFC400869C25 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

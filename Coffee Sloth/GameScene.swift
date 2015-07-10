@@ -9,8 +9,13 @@
 import SpriteKit
 
 
+let screenBounds = UIScreen.mainScreen().bounds
+
+
+
 let airResistance: CGFloat = 0.3
-let gravity: CGFloat = 250
+let gravity: CGFloat = 500
+//900
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -18,11 +23,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var background: Background!
     var lastTime: CFTimeInterval!
     var speedCoefficient: CGFloat = 3
+    var sloth: Sloth!
+    
+    var sectionManager: SectionManager!
     
     var slothCategory: UInt32 = 1 << 0
     var worldCategory: UInt32 = 1 << 1
     
-    var sloth: Sloth!
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
@@ -31,6 +39,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override init(size: CGSize) {
         super.init(size: size)
         
+    
+        
         anchorPoint = CGPoint(x: 0, y: 0)
         
         //self.physicsWorld.gravity = CGVectorMake(0, -1)
@@ -38,6 +48,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background = Background()
         sloth = Sloth(size: size)
         
+        sectionManager = SectionManager(sections: [EmptySection(width: 200), TestSection(), CoffeeSection()], sloth: sloth)
+        
+        //let theme = SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)
+        //SKAction.repeatActionForever(theme)
+        
+        self.addChild(sectionManager)
         self.addChild(sloth.sprite)
         self.addChild(background)
         
@@ -59,6 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lastTime = currentTime
         background.update(deltaTime, slothSpeedX: sloth.velocity.dx)
         sloth.update(deltaTime)
+        sectionManager.update(deltaTime)
         
     }
     
@@ -73,5 +90,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         sloth.stopAccelerating()
+        
     }
 }
