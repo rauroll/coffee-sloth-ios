@@ -48,17 +48,17 @@ class Background: SKNode {
         initBackgroundLevelWith(midBgSprites, tex:midTexture, depth:-20.0)
         initBackgroundLevelWith(floorBgSprites, tex:floorTexture, depth:0.0)
         
-
+        floorBgSprites.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(screenBounds.width, 1))
+        floorBgSprites.physicsBody!.dynamic = false
+        
+        floorBgSprites.physicsBody!.categoryBitMask = worldCategory
+        floorBgSprites.physicsBody!.collisionBitMask = slothCategory
+        floorBgSprites.physicsBody!.contactTestBitMask = slothCategory
+        
         
         self.addChild(farBgSprites)
         self.addChild(midBgSprites)
         self.addChild(floorBgSprites)
-
-
-        
-        
-        
-        
 
         
         

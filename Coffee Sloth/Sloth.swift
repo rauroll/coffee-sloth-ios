@@ -37,6 +37,8 @@ class Sloth {
     //var rotation: CGFloat = 0
     let rotationStep: CGFloat = 0
     
+    var coffeeLevel: CGFloat
+    
     
     
     
@@ -46,6 +48,7 @@ class Sloth {
     
     init(size: CGSize) {
         
+        coffeeLevel = 100
         
         let slothTexture1 = SKTexture(imageNamed: "sloth1")
         let slothTexture2 = SKTexture(imageNamed: "sloth2")
@@ -71,15 +74,21 @@ class Sloth {
         sprite.setScale(2.0)
         sprite.position = CGPoint(x: 0.2 * size.width, y: 0.7 * size.height)
         
+        sprite.zPosition = 1
+        
         
         sprite.zRotation = 1
         
         
         
         sprite.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height / 2)
-        sprite.physicsBody?.dynamic = false
+        sprite.physicsBody?.dynamic = true
         sprite.physicsBody?.allowsRotation = true
-        sprite.physicsBody?.mass = 1
+        sprite.physicsBody?.mass = 0
+        
+        sprite.physicsBody?.categoryBitMask = slothCategory
+        sprite.physicsBody?.collisionBitMask = worldCategory | coffeeCategory | enemyCategory
+        sprite.physicsBody?.contactTestBitMask = worldCategory | coffeeCategory | enemyCategory
         
         
         
@@ -89,6 +98,12 @@ class Sloth {
         
         
     }
+    
+    func resetSettings() {
+        coffeeLevel = 100
+    }
+    
+    
     
     
     //
@@ -100,6 +115,16 @@ class Sloth {
     //        accelerationScalar = accel
     //    }
     //
+    
+    func drinkCoffee(coffee: Coffee) {
+        coffeeLevel += 20
+        coffee.removeFromParent()
+    }
+    
+    func reduceCoffeeLevel(time: CFTimeInterval) {
+        coffeeLevel -= 0.1 * CGFloat(time)
+    }
+    
     func stopAccelerating() {
         accelerating = false
         sprite.removeActionForKey("fire")
@@ -130,6 +155,8 @@ class Sloth {
     }
     
     func update(time: CFTimeInterval) {
+        
+        reduceCoffeeLevel(time)
         
         var accv = CGVectorMake(0, 0)
         if (accelerating) {

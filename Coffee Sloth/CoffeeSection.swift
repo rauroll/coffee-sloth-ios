@@ -24,6 +24,12 @@ class Coffee: SKSpriteNode {
         super.init(texture: coffeeTexture, color: UIColor.clearColor(), size: coffeeTexture.size())
         self.texture = texture
         
+        physicsBody = SKPhysicsBody(circleOfRadius: coffeeTexture.size().width/2, center: CGPointMake(coffeeTexture.size().width/2, coffeeTexture.size().height/2))
+        physicsBody?.dynamic = true
+        physicsBody?.categoryBitMask = coffeeCategory
+        physicsBody?.collisionBitMask = slothCategory
+        physicsBody?.contactTestBitMask = slothCategory
+        
         
     }
     
@@ -58,7 +64,7 @@ class CoffeeSection: Section {
     
     override func enqueued() {
         coffee.positionInSection(width)
-        print("Enqueued a coffee section! Coffee at: \(coffee.position)")
+        //print("Enqueued a coffee section! Coffee at: \(coffee.position)")
     }
 
     required init?(coder aDecoder: NSCoder) {
