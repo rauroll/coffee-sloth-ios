@@ -55,6 +55,12 @@ class Background: SKNode {
         floorBgSprites.physicsBody!.collisionBitMask = slothCategory
         floorBgSprites.physicsBody!.contactTestBitMask = slothCategory
         
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(0, -50, screenBounds.width, screenBounds.height + 50))
+        self.physicsBody!.dynamic = false
+        self.physicsBody!.categoryBitMask = boundsCategory
+        self.physicsBody!.collisionBitMask = slothCategory
+        self.physicsBody!.contactTestBitMask = slothCategory
+        
         
         self.addChild(farBgSprites)
         self.addChild(midBgSprites)

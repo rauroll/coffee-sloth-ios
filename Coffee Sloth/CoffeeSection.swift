@@ -34,8 +34,8 @@ class Coffee: SKSpriteNode {
     }
     
     func positionInSection(sectionWidth: CGFloat) {
-        position.x = sectionWidth * randomCoefficient()
-        position.y = screenBounds.height * randomCoefficient()
+        position.x = (sectionWidth - self.size.width * 2) * randomCoefficient() + self.size.width
+        position.y = (screenBounds.height - self.size.height * 2) * randomCoefficient() + self.size.height
     }
     
 }

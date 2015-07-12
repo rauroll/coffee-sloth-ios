@@ -19,8 +19,9 @@ let gravity: CGFloat = 500
 
 let slothCategory: UInt32 = 1 << 0
 let worldCategory: UInt32 = 1 << 1
-let coffeeCategory: UInt32 = 1 << 2
-let enemyCategory: UInt32 = 1 << 3
+let boundsCategory: UInt32 = 1 << 2
+let coffeeCategory: UInt32 = 1 << 3
+let enemyCategory: UInt32 = 1 << 4
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -32,6 +33,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameOver: Bool
     
     var sectionManager: SectionManager!
+    
+    var audioPlayer: AudioPlayer!
     
     
     
@@ -60,9 +63,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         initSectionManager()
+
         
-        //let theme = SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)
-        //SKAction.repeatActionForever(theme)
+        audioPlayer = AudioPlayer()
+//        let theme = SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)
+//        SKAction.repeatActionForever(theme)
         
         //self.addChild(sectionManager)
         self.addChild(sloth.sprite)
@@ -73,7 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initSectionManager() {
-        sectionManager = SectionManager(sections: [EmptySection(width: 200), TestSection(), CoffeeSection()], sloth: sloth)
+        sectionManager = SectionManager(sections: [EmptySection(width: 200), CoffeeSection()], sloth: sloth)
         self.addChild(sectionManager)
     }
     
@@ -95,12 +100,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case slothCategory | worldCategory:
             print("Sloth collided with an obstacle or the floor")
             gameOver = true
+            audioPlayer.playOnce(audioPlayer.deathSound)
+            
+        case slothCategory | boundsCategory:
+            print("Collided to the bounds!")
+            sloth.velocity.dy = 0
             
         case slothCategory | coffeeCategory:
             print("Sloth collided with a coffee")
             print("Is this a problem to the compiler")
             let coffee = objectNode as! Coffee
             sloth.drinkCoffee(coffee)
+            audioPlayer.playCoffeeSound()
             
             
         case slothCategory | enemyCategory:
@@ -129,8 +140,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
     override func update(currentTime: CFTimeInterval) {
         
-        
-        //tryAddingCoffee()
+
         if (lastTime == nil || gameOver) {
             lastTime = currentTime
             return
@@ -158,6 +168,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         sloth.stopAccelerating()
+        sloth.checkBorders()
         
     }
 }

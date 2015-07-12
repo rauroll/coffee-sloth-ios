@@ -87,8 +87,8 @@ class Sloth {
         sprite.physicsBody?.mass = 0
         
         sprite.physicsBody?.categoryBitMask = slothCategory
-        sprite.physicsBody?.collisionBitMask = worldCategory | coffeeCategory | enemyCategory
-        sprite.physicsBody?.contactTestBitMask = worldCategory | coffeeCategory | enemyCategory
+        sprite.physicsBody?.collisionBitMask = worldCategory | boundsCategory | coffeeCategory | enemyCategory
+        sprite.physicsBody?.contactTestBitMask = worldCategory | boundsCategory | coffeeCategory | enemyCategory
         
         
         
@@ -149,9 +149,26 @@ class Sloth {
     }
     
     func velocityVector() -> CGVector {
-        let x = cos(sprite.zRotation) * velocityScalar
-        let y = sin(sprite.zRotation) * velocityScalar
+        let x = cos(sprite.zRotation + 0.8) * velocityScalar
+        let y = sin(sprite.zRotation + 0.8) * velocityScalar
         return CGVectorMake(x, y)
+    }
+    
+    func isAtUpperBorder() -> Bool {
+        return sprite.position.y >= screenBounds.height - sprite.size.height/3 * 2
+    }
+    
+    func isAtLeftBorder() -> Bool {
+        return sprite.position.x < 3
+    }
+    
+    func checkBorders() {
+        if (isAtUpperBorder()) {
+            velocity.dy = min(velocity.dy, 0)
+        }
+        if (isAtLeftBorder()) {
+            velocity.dx = max(velocity.dx, 0)
+        }
     }
     
     func update(time: CFTimeInterval) {
@@ -172,6 +189,7 @@ class Sloth {
         
         velocity = resultant + g
         
+        //checkBorders()
         
         
         velocity.dx -= airResistance * velocity.dx * CGFloat(time)

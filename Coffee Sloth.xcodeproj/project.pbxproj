@@ -45,6 +45,7 @@
 		4772881B1B3C6BA9009BA1C5 /* Coffee_SlothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4772881A1B3C6BA9009BA1C5 /* Coffee_SlothTests.swift */; };
 		477288261B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288251B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift */; };
 		477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288331B3C6DEF009BA1C5 /* Sloth.swift */; };
+		479654301B5291FB005871B6 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4796542F1B5291FB005871B6 /* AudioPlayer.swift */; };
 		47BEE0891B4956BF00E03B66 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BEE0881B4956BF00E03B66 /* Helpers.swift */; };
 		47D7F4631B4FC65C00F30C83 /* TestSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7F4621B4FC65C00F30C83 /* TestSection.swift */; };
 		47F9C8921B4ED7DA00D5ACAC /* EmptySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F9C8911B4ED7DA00D5ACAC /* EmptySection.swift */; };
@@ -112,6 +113,7 @@
 		477288251B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee_SlothUITests.swift; sourceTree = "<group>"; };
 		477288271B3C6BA9009BA1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		477288331B3C6DEF009BA1C5 /* Sloth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sloth.swift; sourceTree = "<group>"; };
+		4796542F1B5291FB005871B6 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		47BEE0881B4956BF00E03B66 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		47D7F4621B4FC65C00F30C83 /* TestSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSection.swift; sourceTree = "<group>"; };
 		47F9C8911B4ED7DA00D5ACAC /* EmptySection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySection.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				47BEE0881B4956BF00E03B66 /* Helpers.swift */,
 				4705D0F11B49AE4A00869C25 /* SectionManager.swift */,
 				472784471B4AC89100DBDF94 /* Section.swift */,
+				4796542F1B5291FB005871B6 /* AudioPlayer.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				TargetAttributes = {
 					477287FD1B3C6BA9009BA1C5 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 6TX78DRJLR;
 					};
 					477288151B3C6BA9009BA1C5 = {
 						CreatedOnToolsVersion = 7.0;
@@ -448,6 +452,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479654301B5291FB005871B6 /* AudioPlayer.swift in Sources */,
 				472784481B4AC89100DBDF94 /* Section.swift in Sources */,
 				4705D0F21B49AE4A00869C25 /* SectionManager.swift in Sources */,
 				477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */,
@@ -598,10 +603,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Coffee Sloth/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.olliscodes.Coffee-Sloth";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -610,10 +619,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Coffee Sloth/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.olliscodes.Coffee-Sloth";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
