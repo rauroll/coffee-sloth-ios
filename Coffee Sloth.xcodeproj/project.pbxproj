@@ -151,6 +151,7 @@
 		472784491B4B155400DBDF94 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				472784471B4AC89100DBDF94 /* Section.swift */,
 				4727844A1B4B158C00DBDF94 /* CoffeeSection.swift */,
 				47F9C8911B4ED7DA00D5ACAC /* EmptySection.swift */,
 				47D7F4621B4FC65C00F30C83 /* TestSection.swift */,
@@ -296,7 +297,6 @@
 			children = (
 				47BEE0881B4956BF00E03B66 /* Helpers.swift */,
 				4705D0F11B49AE4A00869C25 /* SectionManager.swift */,
-				472784471B4AC89100DBDF94 /* Section.swift */,
 				4796542F1B5291FB005871B6 /* AudioPlayer.swift */,
 			);
 			name = Util;

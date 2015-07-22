@@ -23,7 +23,7 @@ class Owl: SKSpriteNode {
     static let orbitalRadius = screenBounds.height / 3
     static let attackVelocity: CGFloat = 250
     static let attackRange: CGFloat = screenBounds.height * 0.8
-    static let maxFollowTime: CFTimeInterval = 2
+    static let maxFollowTime: CFTimeInterval = 10
     
     var playerSeen = false
     var orbitalStepper: CGFloat = 0

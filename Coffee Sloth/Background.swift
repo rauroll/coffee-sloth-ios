@@ -14,6 +14,8 @@ class Background: SKNode {
     let midBgSprites = SKNode()
     let floorBgSprites = SKNode()
     
+    let overlay = SKNode()
+    
     let farTexture: SKTexture! = SKTexture(imageNamed: "bg-far")
     let midTexture: SKTexture! = SKTexture(imageNamed: "bg-mid")
     let floorTexture: SKTexture! = SKTexture(imageNamed: "floor")
@@ -130,10 +132,5 @@ class Background: SKNode {
         
         
     }
-    
-    
-
-    
-    
     
 }

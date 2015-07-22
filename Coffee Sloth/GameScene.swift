@@ -64,7 +64,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         initSectionManager()
-
         
         AudioPlayer.setup()
 //        let theme = SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)
