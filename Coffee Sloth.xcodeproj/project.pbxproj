@@ -46,6 +46,8 @@
 		477288261B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288251B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift */; };
 		477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288331B3C6DEF009BA1C5 /* Sloth.swift */; };
 		479654301B5291FB005871B6 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4796542F1B5291FB005871B6 /* AudioPlayer.swift */; };
+		479654321B52BD89005871B6 /* HorizontalBarSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479654311B52BD89005871B6 /* HorizontalBarSection.swift */; };
+		479BF4461B540E4B009A6659 /* OwlSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479BF4451B540E4B009A6659 /* OwlSection.swift */; };
 		47BEE0891B4956BF00E03B66 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BEE0881B4956BF00E03B66 /* Helpers.swift */; };
 		47D7F4631B4FC65C00F30C83 /* TestSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7F4621B4FC65C00F30C83 /* TestSection.swift */; };
 		47F9C8921B4ED7DA00D5ACAC /* EmptySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F9C8911B4ED7DA00D5ACAC /* EmptySection.swift */; };
@@ -114,6 +116,8 @@
 		477288271B3C6BA9009BA1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		477288331B3C6DEF009BA1C5 /* Sloth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sloth.swift; sourceTree = "<group>"; };
 		4796542F1B5291FB005871B6 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		479654311B52BD89005871B6 /* HorizontalBarSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBarSection.swift; sourceTree = "<group>"; };
+		479BF4451B540E4B009A6659 /* OwlSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwlSection.swift; sourceTree = "<group>"; };
 		47BEE0881B4956BF00E03B66 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		47D7F4621B4FC65C00F30C83 /* TestSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSection.swift; sourceTree = "<group>"; };
 		47F9C8911B4ED7DA00D5ACAC /* EmptySection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySection.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				4727844A1B4B158C00DBDF94 /* CoffeeSection.swift */,
 				47F9C8911B4ED7DA00D5ACAC /* EmptySection.swift */,
 				47D7F4621B4FC65C00F30C83 /* TestSection.swift */,
+				479654311B52BD89005871B6 /* HorizontalBarSection.swift */,
+				479BF4451B540E4B009A6659 /* OwlSection.swift */,
 			);
 			name = Sections;
 			sourceTree = "<group>";
@@ -454,12 +460,14 @@
 			files = (
 				479654301B5291FB005871B6 /* AudioPlayer.swift in Sources */,
 				472784481B4AC89100DBDF94 /* Section.swift in Sources */,
+				479654321B52BD89005871B6 /* HorizontalBarSection.swift in Sources */,
 				4705D0F21B49AE4A00869C25 /* SectionManager.swift in Sources */,
 				477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */,
 				47D7F4631B4FC65C00F30C83 /* TestSection.swift in Sources */,
 				47BEE0891B4956BF00E03B66 /* Helpers.swift in Sources */,
 				477288061B3C6BA9009BA1C5 /* GameScene.swift in Sources */,
 				4727844B1B4B158C00DBDF94 /* CoffeeSection.swift in Sources */,
+				479BF4461B540E4B009A6659 /* OwlSection.swift in Sources */,
 				477288081B3C6BA9009BA1C5 /* GameViewController.swift in Sources */,
 				47F9C8921B4ED7DA00D5ACAC /* EmptySection.swift in Sources */,
 				477288021B3C6BA9009BA1C5 /* AppDelegate.swift in Sources */,
@@ -606,7 +614,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Coffee Sloth/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.olliscodes.Coffee-Sloth";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -622,7 +630,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Coffee Sloth/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.olliscodes.Coffee-Sloth";
 				PRODUCT_NAME = "$(TARGET_NAME)";

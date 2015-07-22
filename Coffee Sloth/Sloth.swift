@@ -9,6 +9,8 @@
 import Foundation
 import SpriteKit
 
+
+
 class Sloth {
     
     
@@ -71,7 +73,7 @@ class Sloth {
         
         
         
-        sprite.setScale(2.0)
+        sprite.setScale(2)
         sprite.position = CGPoint(x: 0.2 * size.width, y: 0.7 * size.height)
         
         sprite.zPosition = 1
@@ -102,6 +104,7 @@ class Sloth {
     func resetSettings() {
         coffeeLevel = 100
     }
+    
     
     
     
@@ -149,8 +152,8 @@ class Sloth {
     }
     
     func velocityVector() -> CGVector {
-        let x = cos(sprite.zRotation + 0.8) * velocityScalar
-        let y = sin(sprite.zRotation + 0.8) * velocityScalar
+        let x = cos(sprite.zRotation) * velocityScalar
+        let y = sin(sprite.zRotation) * velocityScalar
         return CGVectorMake(x, y)
     }
     

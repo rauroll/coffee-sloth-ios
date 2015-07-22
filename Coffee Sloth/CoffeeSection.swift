@@ -22,7 +22,7 @@ class Coffee: SKSpriteNode {
     init() {
         let coffeeTexture = SKTexture(imageNamed: "coffee")
         super.init(texture: coffeeTexture, color: UIColor.clearColor(), size: coffeeTexture.size())
-        self.texture = texture
+//        self.texture = texture
         
         physicsBody = SKPhysicsBody(circleOfRadius: coffeeTexture.size().width/2, center: CGPointMake(coffeeTexture.size().width/2, coffeeTexture.size().height/2))
         physicsBody?.dynamic = true
@@ -35,7 +35,8 @@ class Coffee: SKSpriteNode {
     
     func positionInSection(sectionWidth: CGFloat) {
         position.x = (sectionWidth - self.size.width * 2) * randomCoefficient() + self.size.width
-        position.y = (screenBounds.height - self.size.height * 2) * randomCoefficient() + self.size.height
+        //position.y = (screenBounds.height - self.size.height * 2) * randomCoefficient() + self.size.height
+        position.y = screenBounds.height / 2
     }
     
 }
@@ -50,10 +51,12 @@ class CoffeeSection: Section {
         
         
         coffee = Coffee()
-        self.weight = 6
+        self.weight = 3
         
         
         self.width = 100
+        
+        self.setScale(0.7)
         
         
         

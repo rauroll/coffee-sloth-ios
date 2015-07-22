@@ -11,14 +11,15 @@ import AVFoundation
 
  class AudioPlayer {
     
-    var backgroundPlayer: AVAudioPlayer!
-    var coffeeSounds: [AVAudioPlayer]!
-    var deathSound: AVAudioPlayer!
+    static var backgroundPlayer: AVAudioPlayer!
+    static var coffeeSounds: [AVAudioPlayer]!
+    static var deathSound: AVAudioPlayer!
+    static var owlSound: AVAudioPlayer!
     
     
-    init() {
+    static func setup() {
         
-        backgroundPlayer = AVAudioPlayer()
+        AudioPlayer.backgroundPlayer = AVAudioPlayer()
         let backgroundMusicUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("theme", ofType: "mp3")!)
         let coffeeSoundUrl1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("coffee1", ofType: "mp3")!)
         let coffeeSoundUrl2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("coffee2", ofType: "mp3")!)
@@ -26,17 +27,19 @@ import AVFoundation
         
         let deathSoundUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("death", ofType: "mp3")!)
         
+        let owlSoundUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("owl", ofType: "mp3")!)
+        
         do {
-            try backgroundPlayer = AVAudioPlayer(contentsOfURL: backgroundMusicUrl)
-            try coffeeSounds = [
+            try AudioPlayer.backgroundPlayer = AVAudioPlayer(contentsOfURL: backgroundMusicUrl)
+            try AudioPlayer.coffeeSounds = [
                                 AVAudioPlayer(contentsOfURL: coffeeSoundUrl1),
                                 AVAudioPlayer(contentsOfURL: coffeeSoundUrl2),
                                 AVAudioPlayer(contentsOfURL: coffeeSoundUrl3)
                                 ]
-            try deathSound = AVAudioPlayer(contentsOfURL: deathSoundUrl)
+            try AudioPlayer.deathSound = AVAudioPlayer(contentsOfURL: deathSoundUrl)
+            try AudioPlayer.owlSound = AVAudioPlayer(contentsOfURL: owlSoundUrl)
             
-            
-            loop(backgroundPlayer)
+            AudioPlayer.loopBackgroundMusic()
             
         } catch {
             print("Failed to load the music to the player")
@@ -47,29 +50,42 @@ import AVFoundation
         
     }
     
-    func loop(avPlayer: AVAudioPlayer) {
+    static func loop(avPlayer: AVAudioPlayer) {
         avPlayer.numberOfLoops = -1
         avPlayer.prepareToPlay()
         avPlayer.play()
     }
     
-    func playOnce(avPlayer: AVAudioPlayer) {
+    static func playOnce(avPlayer: AVAudioPlayer) {
         avPlayer.numberOfLoops = 0
         avPlayer.prepareToPlay()
         avPlayer.play()
     }
     
-    func pause(avPlayer: AVAudioPlayer) {
+    static func pause(avPlayer: AVAudioPlayer) {
         avPlayer.pause()
     }
     
-    func stop(avPlayer: AVAudioPlayer) {
+    static func stop(avPlayer: AVAudioPlayer) {
         avPlayer.stop()
     }
     
-    func playCoffeeSound() {
+    static func playCoffeeSound() {
         let r = Int(arc4random_uniform(2))
-        playOnce(coffeeSounds[r])
+        playOnce(AudioPlayer.coffeeSounds[r])
+    }
+    
+    
+    static func playDeathSound() {
+        AudioPlayer.playOnce(AudioPlayer.deathSound)
+    }
+    
+    static func playOwlSound() {
+        AudioPlayer.playOnce(AudioPlayer.owlSound)
+    }
+    
+    static func loopBackgroundMusic() {
+        AudioPlayer.loop(AudioPlayer.backgroundPlayer)
     }
     
     

@@ -47,7 +47,7 @@ class Section: SKNode {
     }
 
     
-    func update() {
+    func update(time: CFTimeInterval) {
         //preconditionFailure("This method has to be overridden")
     }
 

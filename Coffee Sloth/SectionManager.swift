@@ -42,7 +42,7 @@ class SectionManager: SKNode {
             for (var i = 0; i < children.count; i++) {
                 let section = children[i] as! Section;
                 section.position.x -= dx
-                section.update()
+                section.update(time)
                 
                 // if the last section in the queue is visible or the queue is empty, add a new section
                 if((i == children.count - 1 && section.isVisible()) || children.isEmpty) {
@@ -72,9 +72,9 @@ class SectionManager: SKNode {
     func increaseQueue() {
         var offset: CGFloat = 0
         
-        if (children.count > 0) {
-            let lastSection = children.last! as! Section
-            offset = lastSection.position.x + lastSection.width
+        if let lastSection: Section? = children.last as! Section? {
+            
+            offset = lastSection!.position.x + lastSection!.width
         }
         
         //let r = CGFloat(arc4random()) / CGFloat(UInt32.max) * maxWeight

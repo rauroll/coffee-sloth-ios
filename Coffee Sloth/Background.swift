@@ -55,7 +55,10 @@ class Background: SKNode {
         floorBgSprites.physicsBody!.collisionBitMask = slothCategory
         floorBgSprites.physicsBody!.contactTestBitMask = slothCategory
         
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(0, -50, screenBounds.width, screenBounds.height + 50))
+        // These magic numbers prevent the screen bounds from having seams with no physics body edge that blocks
+        // the sloth from escaping out of bounds.
+        
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(-5, -50, screenBounds.width + 10, screenBounds.height + 50))
         self.physicsBody!.dynamic = false
         self.physicsBody!.categoryBitMask = boundsCategory
         self.physicsBody!.collisionBitMask = slothCategory

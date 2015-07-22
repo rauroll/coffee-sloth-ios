@@ -58,6 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         background = Background()
+        
         sloth = Sloth(size: size)
         
         
@@ -65,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         initSectionManager()
 
         
-        audioPlayer = AudioPlayer()
+        AudioPlayer.setup()
 //        let theme = SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)
 //        SKAction.repeatActionForever(theme)
         
@@ -78,7 +79,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initSectionManager() {
-        sectionManager = SectionManager(sections: [EmptySection(width: 200), CoffeeSection()], sloth: sloth)
+        sectionManager = SectionManager(sections: [
+            EmptySection(width: 200),
+            CoffeeSection(),
+            HorizontalBarSection(),
+            OwlSection(sloth: sloth)
+            ], sloth: sloth)
         self.addChild(sectionManager)
     }
     
@@ -92,15 +98,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             objectNode = contact.bodyA.node
         }
         
-        print("Contact")
-        
         let collision = playerNode!.physicsBody!.categoryBitMask | objectNode!.physicsBody!.categoryBitMask
         
         switch collision {
         case slothCategory | worldCategory:
             print("Sloth collided with an obstacle or the floor")
             gameOver = true
-            audioPlayer.playOnce(audioPlayer.deathSound)
+            AudioPlayer.playDeathSound()
             
         case slothCategory | boundsCategory:
             print("Collided to the bounds!")
@@ -111,11 +115,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("Is this a problem to the compiler")
             let coffee = objectNode as! Coffee
             sloth.drinkCoffee(coffee)
-            audioPlayer.playCoffeeSound()
+            AudioPlayer.playCoffeeSound()
             
             
         case slothCategory | enemyCategory:
             print("Sloth collided with an enemy")
+            gameOver = true
+            AudioPlayer.playDeathSound()
         default:
             print("Unknown collision")
         }

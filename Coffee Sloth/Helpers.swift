@@ -39,6 +39,7 @@ extension CGPoint {
     func normalized() -> CGPoint {
         return self / length()
     }
+    
 }
 
 
@@ -69,6 +70,7 @@ extension CGVector {
         return self / length()
     }
 }
+
 
 func angleBetweenPoints(first: CGPoint, second: CGPoint) -> CGFloat {
     let delta = second - first
