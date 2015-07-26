@@ -108,7 +108,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch collision {
         case slothCategory | worldCategory:
             print("Sloth collided with an obstacle or the floor")
-            gameOver = true
+            gameEnded()
             AudioPlayer.playDeathSound()
             
         case slothCategory | boundsCategory:
@@ -125,7 +125,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case slothCategory | enemyCategory:
             print("Sloth collided with an enemy")
-            gameOver = true
+            gameEnded()
             AudioPlayer.playDeathSound()
         default:
             print("Unknown collision")
@@ -134,10 +134,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func gameEnded() {
+        gameOver = true
+        overlay.gameEnded()
+        
+        
+        
+    }
+    
+    func undoGameOver() {
+        gameOver = false
+        
+        
+    }
+    
     
     func reset() {
         self.removeAllChildren()
-        gameOver = false
+        undoGameOver()
         sloth = Sloth(size: self.size)
         initSectionManager()
         background = Background()
@@ -170,11 +184,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let location = touches.first!.locationInNode(self)
         if (gameOver) {
-            reset()
+            let node = nodeAtPoint(location)
+            if (node.name != nil && node.name! == "NewGame") {
+                reset()
+            }
             return
         }
-        let location = touches.first!.locationInNode(self)
+        
         if (sloth.hasCaffeineInBlood()) {
             let newRot = angleBetweenPoints(sloth.sprite.position, second: location)
             sloth.rotateTo(newRot)

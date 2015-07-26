@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
         
         
         
-        let scene = GameScene(size: view.frame.size)
+        let scene = MenuScene(size: view.frame.size)
         // Configure the view.
         let skView = self.view as! SKView
         skView.showsFPS = true

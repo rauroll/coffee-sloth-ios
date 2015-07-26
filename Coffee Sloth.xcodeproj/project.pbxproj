@@ -38,6 +38,7 @@
 		473E92801B3C7DCA000F3BAD /* unmuted.png in Resources */ = {isa = PBXBuildFile; fileRef = 473E925F1B3C7DCA000F3BAD /* unmuted.png */; };
 		473E92811B3C7DCA000F3BAD /* logo.psd in Resources */ = {isa = PBXBuildFile; fileRef = 473E92611B3C7DCA000F3BAD /* logo.psd */; };
 		473E92831B3C8995000F3BAD /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473E92821B3C8995000F3BAD /* Background.swift */; };
+		474D4BAC1B6516BD00067D03 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D4BAB1B6516BD00067D03 /* MenuScene.swift */; };
 		47531A801B613C5000CCA5A3 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47531A7F1B613C5000CCA5A3 /* Score.swift */; };
 		477288021B3C6BA9009BA1C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288011B3C6BA9009BA1C5 /* AppDelegate.swift */; };
 		477288061B3C6BA9009BA1C5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477288051B3C6BA9009BA1C5 /* GameScene.swift */; };
@@ -77,8 +78,8 @@
 		4705D0F11B49AE4A00869C25 /* SectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionManager.swift; sourceTree = "<group>"; };
 		472784471B4AC89100DBDF94 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		4727844A1B4B158C00DBDF94 /* CoffeeSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeSection.swift; sourceTree = "<group>"; };
-		472C6CC61B5FCA9D00D9E0DA /* CoffeeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeBar.swift; sourceTree = "<group>"; };
-		472C6CC81B5FCAE800D9E0DA /* Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
+		472C6CC61B5FCA9D00D9E0DA /* CoffeeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoffeeBar.swift; path = "Coffee Sloth/CoffeeBar.swift"; sourceTree = "<group>"; };
+		472C6CC81B5FCAE800D9E0DA /* Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Overlay.swift; path = "Coffee Sloth/Overlay.swift"; sourceTree = "<group>"; };
 		473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee1.mp3; sourceTree = "<group>"; };
 		473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee2.mp3; sourceTree = "<group>"; };
 		473E92411B3C7DCA000F3BAD /* coffee3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee3.mp3; sourceTree = "<group>"; };
@@ -104,8 +105,9 @@
 		473E925E1B3C7DCA000F3BAD /* slothsprite_nofire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slothsprite_nofire.png; path = asset/image/sloth/slothsprite_nofire.png; sourceTree = "<group>"; };
 		473E925F1B3C7DCA000F3BAD /* unmuted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmuted.png; sourceTree = "<group>"; };
 		473E92611B3C7DCA000F3BAD /* logo.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.psd; sourceTree = "<group>"; };
-		473E92821B3C8995000F3BAD /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
-		47531A7F1B613C5000CCA5A3 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		473E92821B3C8995000F3BAD /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Background.swift; path = "Coffee Sloth/Background.swift"; sourceTree = "<group>"; };
+		474D4BAB1B6516BD00067D03 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		47531A7F1B613C5000CCA5A3 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Score.swift; path = "Coffee Sloth/Score.swift"; sourceTree = "<group>"; };
 		477287FE1B3C6BA9009BA1C5 /* Coffee Sloth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coffee Sloth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		477288011B3C6BA9009BA1C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		477288051B3C6BA9009BA1C5 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -120,7 +122,7 @@
 		477288211B3C6BA9009BA1C5 /* Coffee SlothUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coffee SlothUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		477288251B3C6BA9009BA1C5 /* Coffee_SlothUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee_SlothUITests.swift; sourceTree = "<group>"; };
 		477288271B3C6BA9009BA1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		477288331B3C6DEF009BA1C5 /* Sloth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sloth.swift; sourceTree = "<group>"; };
+		477288331B3C6DEF009BA1C5 /* Sloth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sloth.swift; path = "Coffee Sloth/Sloth.swift"; sourceTree = "<group>"; };
 		4796542F1B5291FB005871B6 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		479654311B52BD89005871B6 /* HorizontalBarSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBarSection.swift; sourceTree = "<group>"; };
 		479BF4451B540E4B009A6659 /* OwlSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwlSection.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				479BF4451B540E4B009A6659 /* OwlSection.swift */,
 			);
 			name = Sections;
+			path = "Coffee Sloth";
 			sourceTree = "<group>";
 		};
 		473E923B1B3C7DCA000F3BAD /* asset */ = {
@@ -241,6 +244,20 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		474D4BA91B65165F00067D03 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				472784491B4B155400DBDF94 /* Sections */,
+				473E92821B3C8995000F3BAD /* Background.swift */,
+				472C6CC61B5FCA9D00D9E0DA /* CoffeeBar.swift */,
+				47531A7F1B613C5000CCA5A3 /* Score.swift */,
+				472C6CC81B5FCAE800D9E0DA /* Overlay.swift */,
+				477288331B3C6DEF009BA1C5 /* Sloth.swift */,
+			);
+			name = Game;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		477287F51B3C6BA9009BA1C5 = {
 			isa = PBXGroup;
 			children = (
@@ -265,16 +282,12 @@
 		477288001B3C6BA9009BA1C5 /* Coffee Sloth */ = {
 			isa = PBXGroup;
 			children = (
-				472784491B4B155400DBDF94 /* Sections */,
+				474D4BA91B65165F00067D03 /* Game */,
 				47BEE0871B4956B100E03B66 /* Util */,
 				477288011B3C6BA9009BA1C5 /* AppDelegate.swift */,
-				473E92821B3C8995000F3BAD /* Background.swift */,
-				472C6CC61B5FCA9D00D9E0DA /* CoffeeBar.swift */,
-				47531A7F1B613C5000CCA5A3 /* Score.swift */,
-				472C6CC81B5FCAE800D9E0DA /* Overlay.swift */,
 				477288051B3C6BA9009BA1C5 /* GameScene.swift */,
+				474D4BAB1B6516BD00067D03 /* MenuScene.swift */,
 				477288071B3C6BA9009BA1C5 /* GameViewController.swift */,
-				477288331B3C6DEF009BA1C5 /* Sloth.swift */,
 				477288091B3C6BA9009BA1C5 /* Main.storyboard */,
 				4772880C1B3C6BA9009BA1C5 /* Assets.xcassets */,
 				4772880E1B3C6BA9009BA1C5 /* LaunchScreen.storyboard */,
@@ -470,6 +483,7 @@
 				47531A801B613C5000CCA5A3 /* Score.swift in Sources */,
 				479654301B5291FB005871B6 /* AudioPlayer.swift in Sources */,
 				472784481B4AC89100DBDF94 /* Section.swift in Sources */,
+				474D4BAC1B6516BD00067D03 /* MenuScene.swift in Sources */,
 				479654321B52BD89005871B6 /* HorizontalBarSection.swift in Sources */,
 				4705D0F21B49AE4A00869C25 /* SectionManager.swift in Sources */,
 				477288341B3C6DEF009BA1C5 /* Sloth.swift in Sources */,
