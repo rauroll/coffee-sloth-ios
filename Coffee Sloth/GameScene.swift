@@ -30,6 +30,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastTime: CFTimeInterval!
     var speedCoefficient: CGFloat = 3
     var sloth: Sloth!
+    var overlay: Overlay!
+    
+    
     var gameOver: Bool
     
     var sectionManager: SectionManager!
@@ -61,6 +64,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         sloth = Sloth(size: size)
         
+        overlay = Overlay()
+        
         
         
         initSectionManager()
@@ -72,6 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //self.addChild(sectionManager)
         self.addChild(sloth.sprite)
         self.addChild(background)
+        self.addChild(overlay)
         
         
         
@@ -135,9 +141,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sloth = Sloth(size: self.size)
         initSectionManager()
         background = Background()
+        overlay = Overlay()
         
         self.addChild(sloth.sprite)
         self.addChild(background)
+        self.addChild(overlay)
 
     }
     
@@ -155,6 +163,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.update(deltaTime, slothSpeedX: sloth.velocity.dx)
         sloth.update(deltaTime)
         sectionManager.update(deltaTime)
+        overlay.update(deltaTime, sloth: sloth)
         
     }
     
@@ -166,9 +175,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         let location = touches.first!.locationInNode(self)
-        let newRot = angleBetweenPoints(sloth.sprite.position, second: location)
-        sloth.rotateTo(newRot)
-        sloth.accelerate()
+        if (sloth.hasCaffeineInBlood()) {
+            let newRot = angleBetweenPoints(sloth.sprite.position, second: location)
+            sloth.rotateTo(newRot)
+            sloth.accelerate()
+        }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

@@ -149,7 +149,7 @@ class OwlSection: Section {
         
         
         self.width = 1000
-        self.weight = 100
+        self.weight = 3
         
         self.addChild(owl)
     }

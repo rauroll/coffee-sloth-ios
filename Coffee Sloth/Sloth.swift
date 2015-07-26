@@ -39,7 +39,10 @@ class Sloth {
     //var rotation: CGFloat = 0
     let rotationStep: CGFloat = 0
     
-    var coffeeLevel: CGFloat
+    
+    let maxCoffeeLevel: CGFloat = 100
+    var coffeeLevel: CGFloat = 100
+    
     
     
     
@@ -101,7 +104,7 @@ class Sloth {
         
     }
     
-    func resetSettings() {
+    func reset() {
         coffeeLevel = 100
     }
     
@@ -120,12 +123,16 @@ class Sloth {
     //
     
     func drinkCoffee(coffee: Coffee) {
-        coffeeLevel += 20
+        coffeeLevel = min(maxCoffeeLevel, coffeeLevel + 20)
         coffee.removeFromParent()
     }
     
     func reduceCoffeeLevel(time: CFTimeInterval) {
-        coffeeLevel -= 0.1 * CGFloat(time)
+        coffeeLevel = max(0, coffeeLevel - 5 * CGFloat(time))
+    }
+    
+    func hasCaffeineInBlood() -> Bool {
+        return (coffeeLevel > 0)
     }
     
     func stopAccelerating() {
