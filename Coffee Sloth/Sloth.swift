@@ -59,6 +59,7 @@ class Sloth {
         let slothTexture2 = SKTexture(imageNamed: "sloth2")
         let slothTexture3 = SKTexture(imageNamed: "sloth3")
         let slothTexture4 = SKTexture(imageNamed: "sloth4")
+        
         noAccelerationTexture = SKTexture(imageNamed: "slothsprite_nofire")
         
         sprite = SKSpriteNode(texture: noAccelerationTexture)
@@ -147,7 +148,9 @@ class Sloth {
     }
     
     func rotateTo(rot: CGFloat) {
-        sprite.zRotation = rot
+        let rotationAction = SKAction.rotateToAngle(rot, duration: 0.15)
+        sprite.runAction(rotationAction)
+//        sprite.zRotation = rot
     }
     
     

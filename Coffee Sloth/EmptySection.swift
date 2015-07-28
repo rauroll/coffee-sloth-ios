@@ -22,7 +22,7 @@ class EmptySection: Section {
         
         
         self.width = width
-        self.weight = 10
+        self.weight = 15
     }
     
     override init() {

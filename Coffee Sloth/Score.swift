@@ -38,6 +38,11 @@ class Score: SKLabelNode {
         self.text = String(format: "%.0f", score)
     }
     
+    func addCoffeeBonus(bonus: CGFloat) {
+        distance += bonus
+        score += bonus
+    }
+    
     
 
     required init?(coder aDecoder: NSCoder) {

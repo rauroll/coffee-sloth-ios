@@ -51,7 +51,7 @@ class CoffeeSection: Section {
         
         
         coffee = Coffee()
-        self.weight = 10
+        self.weight = 4
         
         
         self.width = 100

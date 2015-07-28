@@ -33,7 +33,7 @@ class HorizontalBarSection: Section {
         
         
         
-        weight = 4
+        weight = 8
         
         
         

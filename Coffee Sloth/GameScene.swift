@@ -120,6 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("Is this a problem to the compiler")
             let coffee = objectNode as! Coffee
             sloth.drinkCoffee(coffee)
+            overlay.score.addCoffeeBonus(10)
             AudioPlayer.playCoffeeSound()
             
             

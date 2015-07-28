@@ -83,7 +83,8 @@ class Overlay: SKNode {
         grayMask.zPosition = 10
         grayMask.alpha = 0.0
         self.addChild(grayMask)
-        let fadeMaskIn = SKAction.fadeAlphaTo(0.4, duration: 1.0)
+        let fadeMaskIn = SKAction.fadeAlphaTo(0.5, duration: 0.8)
+        fadeMaskIn.timingMode = .EaseOut
         
 
         
