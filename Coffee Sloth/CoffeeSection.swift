@@ -23,6 +23,7 @@ class Coffee: SKSpriteNode {
         let coffeeTexture = SKTexture(imageNamed: "coffee")
         super.init(texture: coffeeTexture, color: UIColor.clearColor(), size: coffeeTexture.size())
 //        self.texture = texture
+        self.setScale(0.5)
         
         physicsBody = SKPhysicsBody(circleOfRadius: coffeeTexture.size().width/2, center: CGPointMake(coffeeTexture.size().width/2, coffeeTexture.size().height/2))
         physicsBody?.dynamic = true
@@ -35,8 +36,14 @@ class Coffee: SKSpriteNode {
     
     func positionInSection(sectionWidth: CGFloat) {
         position.x = (sectionWidth - self.size.width * 2) * randomCoefficient() + self.size.width
-        //position.y = (screenBounds.height - self.size.height * 2) * randomCoefficient() + self.size.height
-        position.y = screenBounds.height / 2
+        position.y = (screenBounds.height - self.size.height * 2) * randomCoefficient() + self.size.height
+        //position.y = screenBounds.height / 2
+        print("Position : \(position)")
+    }
+    
+    func positionInAlignment(sectionWidth: CGFloat) {
+        position.x = (sectionWidth - self.size.width * 2) / 2 + self.size.width
+        position.y = screenBounds.height / 2 + sin(SectionManager.coffeeStep) * (screenBounds.height/2 - self.size.height * 2) + self.size.height
     }
     
 }
@@ -51,12 +58,12 @@ class CoffeeSection: Section {
         
         
         coffee = Coffee()
-        self.weight = 4
+        self.weight = 400
         
         
-        self.width = 100
+        self.width = 70
         
-        self.setScale(0.5)
+
         
         
         
@@ -65,9 +72,12 @@ class CoffeeSection: Section {
         
     }
     
+    func positionCoffeeInAlignment() {
+        coffee.positionInAlignment(width)
+    }
+    
     override func enqueued() {
         coffee.positionInSection(width)
-        //print("Enqueued a coffee section! Coffee at: \(coffee.position)")
     }
 
     required init?(coder aDecoder: NSCoder) {

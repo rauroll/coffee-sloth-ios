@@ -85,8 +85,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func initSectionManager() {
         sectionManager = SectionManager(sections: [
-            EmptySection(width: 200),
-            CoffeeSection(),
             HorizontalBarSection(),
             OwlSection(sloth: sloth)
             ], sloth: sloth)

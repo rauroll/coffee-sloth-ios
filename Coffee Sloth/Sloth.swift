@@ -109,12 +109,12 @@ class Sloth {
 
     
     func drinkCoffee(coffee: Coffee) {
-        coffeeLevel = min(maxCoffeeLevel, coffeeLevel + 20)
+        coffeeLevel = min(maxCoffeeLevel, coffeeLevel + 10)
         coffee.removeFromParent()
     }
     
     func reduceCoffeeLevel(time: CFTimeInterval) {
-        coffeeLevel = max(0, coffeeLevel - 5 * CGFloat(time))
+        coffeeLevel = max(0, coffeeLevel - 10 * CGFloat(time))
     }
     
     func hasCaffeineInBlood() -> Bool {

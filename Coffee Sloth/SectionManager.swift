@@ -15,6 +15,7 @@ class SectionManager: SKNode {
     var sections: [Section]!
     var maxWeight: CGFloat!
     var sloth: Sloth
+    static var coffeeStep: CGFloat = 0
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
@@ -28,11 +29,17 @@ class SectionManager: SKNode {
         
         
         
+        
+        
         super.init()
+        
+        // The sloth always starts in an empty section
+        enqueue(EmptySection(width: screenBounds.width))
         
     }
     
     func update(time: CFTimeInterval) {
+
         
         let dx = sloth.velocity.dx * CGFloat(time)
         
@@ -46,7 +53,7 @@ class SectionManager: SKNode {
                 
                 // if the last section in the queue is visible or the queue is empty, add a new section
                 if((i == children.count - 1 && section.isVisible()) || children.isEmpty) {
-                    increaseQueue()
+                    (randomCoefficient() < 0.85) ? increaseQueue(true) : increaseQueue(false)
                     break
                 }
                 
@@ -69,7 +76,7 @@ class SectionManager: SKNode {
         }
     }
     
-    func increaseQueue() {
+    func increaseQueue(coffeeString: Bool) {
         var offset: CGFloat = 0
         
         if let lastSection: Section? = children.last as! Section? {
@@ -77,10 +84,28 @@ class SectionManager: SKNode {
             offset = lastSection!.position.x + lastSection!.width
         }
         
+        if (coffeeString) {
+            let numberOfCoffees: Int = Int(randomCoefficient() * 8) + 2
+            let curve = randomCoefficient() * 0.5 + 0.1
 
+            for (var i = 0; i < numberOfCoffees; i++) {
+                let coffeeSection = CoffeeSection()
+                coffeeSection.position.x = offset
+                offset += coffeeSection.width
+                coffeeSection.positionCoffeeInAlignment()
+                SectionManager.increaseCoffeeStep(curve)
+                self.addChild(coffeeSection)
+            }
+        }
+        
         let randomSection: Section! = pickRandomSection()
         randomSection.position.x = offset
         enqueue(randomSection)
+        
+    }
+    
+    static func increaseCoffeeStep(by: CGFloat) {
+        SectionManager.coffeeStep += by
     }
     
     func pickRandomSection() -> Section {
