@@ -11,7 +11,9 @@ import SpriteKit
 
 class HorizontalBarSection: Section {
     
-    var maxHeight: CGFloat = screenBounds.height / 1.7
+    let maxHeight: CGFloat = screenBounds.height / 2
+    let minHeight: CGFloat = screenBounds.height / 4
+    
     var offset: CGFloat = 30
     
     var bar: SKShapeNode!
@@ -30,6 +32,7 @@ class HorizontalBarSection: Section {
         super.init()
         
         width = 50
+        
         
         
         
@@ -58,8 +61,8 @@ class HorizontalBarSection: Section {
         stepper = randomCoefficient() * CGFloat(M_PI)
         self.removeAllChildren()
         
-        let barHeight = (maxHeight*0.7) * randomCoefficient() + maxHeight*0.3
-        let myRect = CGRectMake(offset, (screenBounds.height / 2 - barHeight / 2), width - offset, barHeight)
+        let barHeight = minHeight + (maxHeight-minHeight) * randomCoefficient()
+        let myRect = CGRectMake(offset, (screenBounds.height / 2), width - offset, barHeight)
         bar = SKShapeNode(rect: myRect)
         
         bar.fillColor = UIColor.whiteColor()
