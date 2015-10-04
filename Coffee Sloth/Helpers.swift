@@ -97,6 +97,16 @@ func randomCoefficient() -> CGFloat {
     return CGFloat(arc4random()) / CGFloat(UInt32.max)
 }
 
+func clamp(min: CGFloat, max: CGFloat, value: CGFloat) -> CGFloat {
+    if( value > max ) {
+        return max
+    } else if( value < min ) {
+        return min
+    } else {
+        return value
+    }
+}
+
 
 
 

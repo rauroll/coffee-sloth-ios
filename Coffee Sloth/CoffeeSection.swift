@@ -56,7 +56,7 @@ class CoffeeSection: Section {
         
         self.width = 100
         
-        self.setScale(0.7)
+        self.setScale(0.5)
         
         
         

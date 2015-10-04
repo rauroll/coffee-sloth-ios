@@ -41,7 +41,7 @@ class HorizontalBarSection: Section {
     
     override func update(time: CFTimeInterval) {
         
-        let step = 3 * CGFloat(time)
+        let step = 2 * CGFloat(time)
        
 
         bar.position.y = sin(stepper) * (screenBounds.height - bar.frame.height * 1.5)
@@ -58,14 +58,14 @@ class HorizontalBarSection: Section {
         stepper = randomCoefficient() * CGFloat(M_PI)
         self.removeAllChildren()
         
-        let barHeight = (maxHeight - 100) * randomCoefficient() + 100
+        let barHeight = (maxHeight*0.7) * randomCoefficient() + maxHeight*0.3
         let myRect = CGRectMake(offset, (screenBounds.height / 2 - barHeight / 2), width - offset, barHeight)
         bar = SKShapeNode(rect: myRect)
         
         bar.fillColor = UIColor.whiteColor()
         bar.alpha = 0.65
         
-        print("Initialized a bar of size \(bar.frame.size)")
+
         bar.physicsBody = SKPhysicsBody(edgeLoopFromRect: myRect)
         bar.physicsBody!.dynamic = false
         

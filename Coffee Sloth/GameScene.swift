@@ -14,7 +14,7 @@ let screenBounds = UIScreen.mainScreen().bounds
 
 
 let airResistance: CGFloat = 0.3
-let gravity: CGFloat = 500
+let gravity: CGFloat = 700
 //900
 
 let slothCategory: UInt32 = 1 << 0
@@ -107,17 +107,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         switch collision {
         case slothCategory | worldCategory:
-            print("Sloth collided with an obstacle or the floor")
+
             gameEnded()
             AudioPlayer.playDeathSound()
             
         case slothCategory | boundsCategory:
-            print("Collided to the bounds!")
+
             sloth.velocity.dy = 0
             
         case slothCategory | coffeeCategory:
-            print("Sloth collided with a coffee")
-            print("Is this a problem to the compiler")
+
+
             let coffee = objectNode as! Coffee
             sloth.drinkCoffee(coffee)
             overlay.score.addCoffeeBonus(10)
@@ -125,7 +125,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
         case slothCategory | enemyCategory:
-            print("Sloth collided with an enemy")
+
             gameEnded()
             AudioPlayer.playDeathSound()
         default:
@@ -195,8 +195,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if (sloth.hasCaffeineInBlood()) {
-            let newRot = angleBetweenPoints(sloth.sprite.position, second: location)
-            sloth.rotateTo(newRot)
             sloth.accelerate()
         }
     }

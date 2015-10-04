@@ -77,17 +77,8 @@ class SectionManager: SKNode {
             offset = lastSection!.position.x + lastSection!.width
         }
         
-        //let r = CGFloat(arc4random()) / CGFloat(UInt32.max) * maxWeight
+
         let randomSection: Section! = pickRandomSection()
-//        var c: CGFloat = 0
-//        for (var i = 0; i < sections.count; i++) {
-//            let s = sections[i]
-//            c += s.weight
-//            if (r < c) {
-//                randomSection = s.copy() as! Section
-//                break
-//            }
-//        }
         randomSection.position.x = offset
         enqueue(randomSection)
     }

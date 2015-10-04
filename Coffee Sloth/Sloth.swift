@@ -26,19 +26,17 @@ class Sloth {
     let speedLimit: CGFloat = 500
     // 500
     
-    let accelerationForce: CGFloat = 2000
+    let accelerationForce: CGFloat = 3000
     // 4000
     
-    //var accelerationVector = CGPoint(x: 0, y: 0)
+
     
-    var velocityScalar: CGFloat = 0
+
     var velocity = CGVectorMake(0, 0)
     
-    var angularAccelerationScalar: CGFloat = 0
-    
-    //var rotation: CGFloat = 0
-    let rotationStep: CGFloat = 0
-    
+    var angularAcceleration: CGFloat = 1.0
+    var angularVelocity: CGFloat = 0
+
     
     let maxCoffeeLevel: CGFloat = 100
     var coffeeLevel: CGFloat = 100
@@ -77,7 +75,7 @@ class Sloth {
         
         
         
-        sprite.setScale(2)
+        sprite.setScale(1.6)
         sprite.position = CGPoint(x: 0.2 * size.width, y: 0.7 * size.height)
         
         sprite.zPosition = 1
@@ -98,7 +96,6 @@ class Sloth {
         
         
         
-        // Add masks (collision, contact, category)
         
         
         
@@ -109,19 +106,7 @@ class Sloth {
         coffeeLevel = 100
     }
     
-    
-    
-    
-    
-    //
-    //    func changeAngularAccelerationTo(accel: CGFloat) {
-    //        angularAccelerationScalar = accel
-    //    }
-    //
-    //    func changeAccelerationTo(accel: CGFloat) {
-    //        accelerationScalar = accel
-    //    }
-    //
+
     
     func drinkCoffee(coffee: Coffee) {
         coffeeLevel = min(maxCoffeeLevel, coffeeLevel + 20)
@@ -147,10 +132,17 @@ class Sloth {
         sprite.runAction(accelerationAnimation, withKey: "fire")
     }
     
+    func updateRotation() {
+        if (!isAtUpperBorder()) {
+            sprite.zRotation = clamp( -1, max: 0.5, value: velocity.dy * ( velocity.dy < 0 ? 0.003 : 0.001 ) )
+        }
+    }
+    
+    
+    // Not in use with current sloth control implementation
     func rotateTo(rot: CGFloat) {
         let rotationAction = SKAction.rotateToAngle(rot, duration: 0.15)
         sprite.runAction(rotationAction)
-//        sprite.zRotation = rot
     }
     
     
@@ -161,14 +153,9 @@ class Sloth {
         return CGVectorMake(x, y)
     }
     
-    func velocityVector() -> CGVector {
-        let x = cos(sprite.zRotation) * velocityScalar
-        let y = sin(sprite.zRotation) * velocityScalar
-        return CGVectorMake(x, y)
-    }
     
     func isAtUpperBorder() -> Bool {
-        return sprite.position.y >= screenBounds.height - sprite.size.height/3 * 2
+        return sprite.position.y >= screenBounds.height - sprite.size.height/2 - 1
     }
     
     func isAtLeftBorder() -> Bool {
@@ -190,8 +177,13 @@ class Sloth {
         
         var accv = CGVectorMake(0, 0)
         if (accelerating) {
+            if (!isAtUpperBorder()) {
+                sprite.zRotation = max(sprite.zRotation + angularAcceleration, 1)
+            }
             accv = accelerationVector() * CGFloat(time)
         }
+        
+        updateRotation()
         
         let g = CGVectorMake(0, -(gravity * CGFloat(time)))
         var resultant = velocity + accv
@@ -202,14 +194,15 @@ class Sloth {
         
         velocity = resultant + g
         
-        //checkBorders()
-        
-        
         velocity.dx -= airResistance * velocity.dx * CGFloat(time)
         velocity.dy -= airResistance * velocity.dy * CGFloat(time)
         
+        //check borders before moving the sloth
+        let verticalMovement = velocity.dy * CGFloat(time)
         
-        sprite.position.y += velocity.dy * CGFloat(time)
+        if (sprite.position.y + verticalMovement <= screenBounds.size.height) {
+            sprite.position.y += velocity.dy * CGFloat(time)
+        }
     
     }
     

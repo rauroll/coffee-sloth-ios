@@ -21,12 +21,10 @@ class MenuScene: SKScene {
         
         let playButton = SKLabelNode(text: "Play")
         playButton.name = "Play"
-        let quitButton = SKLabelNode(text: "Quit")
-        quitButton.name = "Quit"
         let creditsButton = SKLabelNode(text: "Credits")
         creditsButton.name = "Credits"
         
-        buttons = [playButton, quitButton, creditsButton]
+        buttons = [playButton, creditsButton]
         let buttonHeight = size.height * 0.8 / CGFloat(buttons.count)
         
         for b in buttons {
@@ -50,16 +48,18 @@ class MenuScene: SKScene {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let location = touches.first!.locationInNode(self)
         let node = nodeAtPoint(location)
-        switch node.name! {
-        case "Play":
-            let scene = GameScene(size: self.scene!.size)
-            let transition = SKTransition.fadeWithDuration(0.5)
-            
-            scene.scaleMode = .ResizeFill
-            
-            self.scene!.view!.presentScene(scene, transition: transition)
-        default:
-            print("Nothing implemented for this menu item yet")
+        if let n = node.name {
+            switch n {
+            case "Play":
+                let scene = GameScene(size: self.scene!.size)
+                let transition = SKTransition.fadeWithDuration(0.5)
+                
+                scene.scaleMode = .ResizeFill
+                
+                self.scene!.view!.presentScene(scene, transition: transition)
+            default:
+                print("Nothing implemented for this menu item yet")
+            }
         }
     }
 }

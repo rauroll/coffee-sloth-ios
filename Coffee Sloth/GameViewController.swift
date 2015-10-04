@@ -32,13 +32,13 @@ class GameViewController: UIViewController {
         scene.scaleMode = .ResizeFill
         
         
-        print(skView.frame.size)
+
         skView.presentScene(scene)
         
     }
 
     override func shouldAutorotate() -> Bool {
-        return true
+        return false
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {

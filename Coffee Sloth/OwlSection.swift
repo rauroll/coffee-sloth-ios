@@ -56,7 +56,7 @@ class Owl: SKSpriteNode {
         self.zPosition = 2 // Placed on top of sloth on intersection
         self.position = CGPoint(x: screenBounds.height / 2 + Owl.orbitalRadius, y: screenBounds.height / 2)
         
-        self.setScale(2)
+        self.setScale(1.6)
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: owlTexture1.size().height/2.5)
         self.physicsBody?.dynamic = false
@@ -75,7 +75,7 @@ class Owl: SKSpriteNode {
         
         let t = CGFloat(time)
         let actualOwlPosition = (self.position + sectionPosition)
-        print(followCounter)
+
         let distance = (slothPosition - actualOwlPosition).length()
         
         
