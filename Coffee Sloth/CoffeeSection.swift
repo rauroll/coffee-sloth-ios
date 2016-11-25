@@ -21,12 +21,12 @@ class Coffee: SKSpriteNode {
     
     init() {
         let coffeeTexture = SKTexture(imageNamed: "coffee")
-        super.init(texture: coffeeTexture, color: UIColor.clearColor(), size: coffeeTexture.size())
+        super.init(texture: coffeeTexture, color: UIColor.clear, size: coffeeTexture.size())
 //        self.texture = texture
         self.setScale(0.5)
         
-        physicsBody = SKPhysicsBody(circleOfRadius: coffeeTexture.size().width/2, center: CGPointMake(coffeeTexture.size().width/2, coffeeTexture.size().height/2))
-        physicsBody?.dynamic = true
+        physicsBody = SKPhysicsBody(circleOfRadius: coffeeTexture.size().width/2, center: CGPoint(x: coffeeTexture.size().width/2, y: coffeeTexture.size().height/2))
+        physicsBody?.isDynamic = true
         physicsBody?.categoryBitMask = coffeeCategory
         physicsBody?.collisionBitMask = slothCategory
         physicsBody?.contactTestBitMask = slothCategory
@@ -34,14 +34,14 @@ class Coffee: SKSpriteNode {
         
     }
     
-    func positionInSection(sectionWidth: CGFloat) {
+    func positionInSection(_ sectionWidth: CGFloat) {
         position.x = (sectionWidth - self.size.width * 2) * randomCoefficient() + self.size.width
         position.y = (screenBounds.height - self.size.height * 2) * randomCoefficient() + self.size.height
         //position.y = screenBounds.height / 2
         print("Position : \(position)")
     }
     
-    func positionInAlignment(sectionWidth: CGFloat) {
+    func positionInAlignment(_ sectionWidth: CGFloat) {
         position.x = (sectionWidth - self.size.width * 2) / 2 + self.size.width
         position.y = screenBounds.height / 2 + sin(SectionManager.coffeeStep) * (screenBounds.height/2 - self.size.height * 2) + self.size.height
     }

@@ -45,13 +45,13 @@ class Owl: SKSpriteNode {
         let movingTextures = [owlTexture1, owlTexture2, owlTexture3]
         
         for e in movingTextures {
-            e.filteringMode = .Nearest
+            e.filteringMode = .nearest
         }
         
-        let movingAnimation = SKAction.animateWithTextures(movingTextures, timePerFrame: 0.3)
-        accelerationAnimation = SKAction.repeatActionForever(movingAnimation)
+        let movingAnimation = SKAction.animate(with: movingTextures, timePerFrame: 0.3)
+        accelerationAnimation = SKAction.repeatForever(movingAnimation)
         
-        super.init(texture: owlTexture1, color: UIColor.clearColor(), size: owlTexture1.size())
+        super.init(texture: owlTexture1, color: UIColor.clear, size: owlTexture1.size())
         
         self.zPosition = 2 // Placed on top of sloth on intersection
         self.position = CGPoint(x: screenBounds.height / 2 + Owl.orbitalRadius, y: screenBounds.height / 2)
@@ -59,19 +59,19 @@ class Owl: SKSpriteNode {
         self.setScale(1.6)
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: owlTexture1.size().height/2.5)
-        self.physicsBody?.dynamic = false
+        self.physicsBody?.isDynamic = false
         self.physicsBody?.allowsRotation = false // Maybe reconsider this for smoother animations
         
         self.physicsBody?.categoryBitMask = enemyCategory
         self.physicsBody?.contactTestBitMask = slothCategory
         self.physicsBody?.collisionBitMask = slothCategory
         
-        self.runAction(accelerationAnimation)
+        self.run(accelerationAnimation)
         
         
     }
     
-    func update(time: CFTimeInterval, slothPosition: CGPoint, sectionPosition: CGPoint) {
+    func update(_ time: CFTimeInterval, slothPosition: CGPoint, sectionPosition: CGPoint) {
         
         let t = CGFloat(time)
         let actualOwlPosition = (self.position + sectionPosition)
@@ -111,10 +111,10 @@ class Owl: SKSpriteNode {
     
     
     
-    func velocityVector(rotation: CGFloat) -> CGVector {
+    func velocityVector(_ rotation: CGFloat) -> CGVector {
         let x = cos(rotation) * Owl.attackVelocity
         let y = sin(rotation) * Owl.attackVelocity
-        return CGVectorMake(x, y)
+        return CGVector(dx: x, dy: y)
     }
     
     
@@ -154,7 +154,7 @@ class OwlSection: Section {
         self.addChild(owl)
     }
     
-    override func update(time: CFTimeInterval) {
+    override func update(_ time: CFTimeInterval) {
         if !children.isEmpty {
             owl.update(time, slothPosition: OwlSection.sloth.sprite.position, sectionPosition: self.position)
     

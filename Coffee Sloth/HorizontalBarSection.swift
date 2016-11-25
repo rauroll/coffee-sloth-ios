@@ -42,7 +42,7 @@ class HorizontalBarSection: Section {
         
     }
     
-    override func update(time: CFTimeInterval) {
+    override func update(_ time: CFTimeInterval) {
         
         let step = 2 * CGFloat(time)
        
@@ -62,15 +62,15 @@ class HorizontalBarSection: Section {
         self.removeAllChildren()
         
         let barHeight = minHeight + (maxHeight-minHeight) * randomCoefficient()
-        let myRect = CGRectMake(offset, (screenBounds.height / 2), width - offset, barHeight)
+        let myRect = CGRect(x: offset, y: (screenBounds.height / 2), width: width - offset, height: barHeight)
         bar = SKShapeNode(rect: myRect)
         
-        bar.fillColor = UIColor.whiteColor()
+        bar.fillColor = UIColor.white
         bar.alpha = 0.65
         
 
-        bar.physicsBody = SKPhysicsBody(edgeLoopFromRect: myRect)
-        bar.physicsBody!.dynamic = false
+        bar.physicsBody = SKPhysicsBody(edgeLoopFrom: myRect)
+        bar.physicsBody!.isDynamic = false
         
         bar.physicsBody!.categoryBitMask = worldCategory
         bar.physicsBody!.collisionBitMask = slothCategory

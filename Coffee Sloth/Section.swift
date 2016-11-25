@@ -47,13 +47,13 @@ class Section: SKNode {
     }
 
     
-    func update(time: CFTimeInterval) {
+    func update(_ time: CFTimeInterval) {
         //preconditionFailure("This method has to be overridden")
     }
 
     
     func isVisible() -> Bool {
-        return (position.x < UIScreen.mainScreen().bounds.width && position.x > -width)
+        return (position.x < UIScreen.main.bounds.width && position.x > -width)
     }
 
     

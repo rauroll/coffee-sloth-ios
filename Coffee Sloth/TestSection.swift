@@ -39,16 +39,16 @@ class TestSection: Section {
     func markTheSection() {
         removeAllChildren()
         let dot = shapeByRand(arc4random_uniform(2))
-        dot.fillColor = UIColor.redColor()
-        dot.position = CGPointMake(self.width / 2, UIScreen.mainScreen().bounds.height / 2.0)
+        dot.fillColor = UIColor.red
+        dot.position = CGPoint(x: self.width / 2, y: UIScreen.main.bounds.height / 2.0)
         addChild(dot)
     }
     
-    func shapeByRand(r: UInt32) -> SKShapeNode {
+    func shapeByRand(_ r: UInt32) -> SKShapeNode {
         var shape: SKShapeNode!
         switch r {
-        case 0: shape = SKShapeNode(ellipseOfSize: CGSizeMake(50, 50)); shape.fillColor = UIColor.redColor()
-        case 1: shape = SKShapeNode(rect: CGRectMake(0, 0, 50, 50)); shape.fillColor = UIColor.blueColor()
+        case 0: shape = SKShapeNode(ellipseOf: CGSize(width: 50, height: 50)); shape.fillColor = UIColor.red
+        case 1: shape = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 50, height: 50)); shape.fillColor = UIColor.blue
         default: shape = nil
         }
         return shape

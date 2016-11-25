@@ -30,10 +30,10 @@ class MenuScene: SKScene {
         for b in buttons {
             b.fontSize = 30
             b.fontName = "AvenirNext-Heavy"
-            b.fontColor = UIColor.whiteColor()
+            b.fontColor = UIColor.white
             b.alpha = 0.9
             b.zPosition = 5
-            b.position = CGPointMake(size.width / 2, (CGFloat(buttons.count) - 1 - CGFloat(buttons.indexOf(b)!)) * buttonHeight + size.height * 0.2)
+            b.position = CGPoint(x: size.width / 2, y: (CGFloat(buttons.count) - 1 - CGFloat(buttons.index(of: b)!)) * buttonHeight + size.height * 0.2)
             self.addChild(b)
         }
         
@@ -45,16 +45,16 @@ class MenuScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let location = touches.first!.locationInNode(self)
-        let node = nodeAtPoint(location)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let location = touches.first!.location(in: self)
+        let node = atPoint(location)
         if let n = node.name {
             switch n {
             case "Play":
                 let scene = GameScene(size: self.scene!.size)
-                let transition = SKTransition.fadeWithDuration(0.5)
+                let transition = SKTransition.fade(withDuration: 0.5)
                 
-                scene.scaleMode = .ResizeFill
+                scene.scaleMode = .resizeFill
                 
                 self.scene!.view!.presentScene(scene, transition: transition)
             default:

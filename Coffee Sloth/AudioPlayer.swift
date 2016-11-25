@@ -20,24 +20,24 @@ import AVFoundation
     static func setup() {
         
         AudioPlayer.backgroundPlayer = AVAudioPlayer()
-        let backgroundMusicUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("theme", ofType: "mp3")!)
-        let coffeeSoundUrl1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("coffee1", ofType: "mp3")!)
-        let coffeeSoundUrl2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("coffee2", ofType: "mp3")!)
-        let coffeeSoundUrl3 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("coffee3", ofType: "mp3")!)
+        let backgroundMusicUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "theme", ofType: "mp3")!)
+        let coffeeSoundUrl1 = URL(fileURLWithPath: Bundle.main.path(forResource: "coffee1", ofType: "mp3")!)
+        let coffeeSoundUrl2 = URL(fileURLWithPath: Bundle.main.path(forResource: "coffee2", ofType: "mp3")!)
+        let coffeeSoundUrl3 = URL(fileURLWithPath: Bundle.main.path(forResource: "coffee3", ofType: "mp3")!)
         
-        let deathSoundUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("death", ofType: "mp3")!)
+        let deathSoundUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "death", ofType: "mp3")!)
         
-        let owlSoundUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("owl", ofType: "mp3")!)
+        let owlSoundUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "owl", ofType: "mp3")!)
         
         do {
-            try AudioPlayer.backgroundPlayer = AVAudioPlayer(contentsOfURL: backgroundMusicUrl)
+            try AudioPlayer.backgroundPlayer = AVAudioPlayer(contentsOf: backgroundMusicUrl)
             try AudioPlayer.coffeeSounds = [
-                                AVAudioPlayer(contentsOfURL: coffeeSoundUrl1),
-                                AVAudioPlayer(contentsOfURL: coffeeSoundUrl2),
-                                AVAudioPlayer(contentsOfURL: coffeeSoundUrl3)
+                                AVAudioPlayer(contentsOf: coffeeSoundUrl1),
+                                AVAudioPlayer(contentsOf: coffeeSoundUrl2),
+                                AVAudioPlayer(contentsOf: coffeeSoundUrl3)
                                 ]
-            try AudioPlayer.deathSound = AVAudioPlayer(contentsOfURL: deathSoundUrl)
-            try AudioPlayer.owlSound = AVAudioPlayer(contentsOfURL: owlSoundUrl)
+            try AudioPlayer.deathSound = AVAudioPlayer(contentsOf: deathSoundUrl)
+            try AudioPlayer.owlSound = AVAudioPlayer(contentsOf: owlSoundUrl)
             
             AudioPlayer.loopBackgroundMusic()
             
@@ -50,23 +50,23 @@ import AVFoundation
         
     }
     
-    static func loop(avPlayer: AVAudioPlayer) {
+    static func loop(_ avPlayer: AVAudioPlayer) {
         avPlayer.numberOfLoops = -1
         avPlayer.prepareToPlay()
         avPlayer.play()
     }
     
-    static func playOnce(avPlayer: AVAudioPlayer) {
+    static func playOnce(_ avPlayer: AVAudioPlayer) {
         avPlayer.numberOfLoops = 0
         avPlayer.prepareToPlay()
         avPlayer.play()
     }
     
-    static func pause(avPlayer: AVAudioPlayer) {
+    static func pause(_ avPlayer: AVAudioPlayer) {
         avPlayer.pause()
     }
     
-    static func stop(avPlayer: AVAudioPlayer) {
+    static func stop(_ avPlayer: AVAudioPlayer) {
         avPlayer.stop()
     }
     

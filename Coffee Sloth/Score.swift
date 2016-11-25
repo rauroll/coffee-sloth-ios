@@ -22,13 +22,13 @@ class Score: SKLabelNode {
         self.text = "\(score)"
         self.fontSize = 30
         self.fontName = "AvenirNext-Heavy"
-        self.fontColor = UIColor.whiteColor()
-        self.position = CGPointMake(screenBounds.width * 0.8 , 20)
+        self.fontColor = UIColor.white
+        self.position = CGPoint(x: screenBounds.width * 0.8 , y: 20)
         
         
     }
     
-    func update(time: CFTimeInterval, velx: CGFloat) {
+    func update(_ time: CFTimeInterval, velx: CGFloat) {
         
         // The coefficient controls the pace at which the player gains points by
         // moving forward in the game.
@@ -38,7 +38,7 @@ class Score: SKLabelNode {
         self.text = String(format: "%.0f", score)
     }
     
-    func addCoffeeBonus(bonus: CGFloat) {
+    func addCoffeeBonus(_ bonus: CGFloat) {
         distance += bonus
         score += bonus
     }

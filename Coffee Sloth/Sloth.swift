@@ -32,7 +32,7 @@ class Sloth {
 
     
 
-    var velocity = CGVectorMake(0, 0)
+    var velocity = CGVector(dx: 0, dy: 0)
     
     var angularAcceleration: CGFloat = 1.0
     var angularVelocity: CGFloat = 0
@@ -64,14 +64,14 @@ class Sloth {
         
         let movingTextures = [slothTexture1, slothTexture2, slothTexture3, slothTexture4]
         for e in movingTextures {
-            e.filteringMode = .Nearest
+            e.filteringMode = .nearest
         }
-        noAccelerationTexture.filteringMode = .Nearest
+        noAccelerationTexture.filteringMode = .nearest
         
         
         
-        let movingAnimation = SKAction.animateWithTextures(movingTextures, timePerFrame: 0.1)
-        accelerationAnimation = SKAction.repeatActionForever(movingAnimation)
+        let movingAnimation = SKAction.animate(with: movingTextures, timePerFrame: 0.1)
+        accelerationAnimation = SKAction.repeatForever(movingAnimation)
         
         
         
@@ -86,7 +86,7 @@ class Sloth {
         
         
         sprite.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height / 2)
-        sprite.physicsBody?.dynamic = true
+        sprite.physicsBody?.isDynamic = true
         sprite.physicsBody?.allowsRotation = true
         sprite.physicsBody?.mass = 0
         
@@ -108,12 +108,12 @@ class Sloth {
     
 
     
-    func drinkCoffee(coffee: Coffee) {
+    func drinkCoffee(_ coffee: Coffee) {
         coffeeLevel = min(maxCoffeeLevel, coffeeLevel + 10)
         coffee.removeFromParent()
     }
     
-    func reduceCoffeeLevel(time: CFTimeInterval) {
+    func reduceCoffeeLevel(_ time: CFTimeInterval) {
         coffeeLevel = max(0, coffeeLevel - 10 * CGFloat(time))
     }
     
@@ -123,13 +123,13 @@ class Sloth {
     
     func stopAccelerating() {
         accelerating = false
-        sprite.removeActionForKey("fire")
+        sprite.removeAction(forKey: "fire")
         sprite.texture = noAccelerationTexture
         
     }
     func accelerate() {
         accelerating = true
-        sprite.runAction(accelerationAnimation, withKey: "fire")
+        sprite.run(accelerationAnimation, withKey: "fire")
     }
     
     func updateRotation() {
@@ -140,9 +140,9 @@ class Sloth {
     
     
     // Not in use with current sloth control implementation
-    func rotateTo(rot: CGFloat) {
-        let rotationAction = SKAction.rotateToAngle(rot, duration: 0.15)
-        sprite.runAction(rotationAction)
+    func rotateTo(_ rot: CGFloat) {
+        let rotationAction = SKAction.rotate(toAngle: rot, duration: 0.15)
+        sprite.run(rotationAction)
     }
     
     
@@ -150,7 +150,7 @@ class Sloth {
         let x = cos(sprite.zRotation) * accelerationForce
         let y = sin(sprite.zRotation) * accelerationForce
         
-        return CGVectorMake(x, y)
+        return CGVector(dx: x, dy: y)
     }
     
     
@@ -171,11 +171,11 @@ class Sloth {
         }
     }
     
-    func update(time: CFTimeInterval) {
+    func update(_ time: CFTimeInterval) {
         
         reduceCoffeeLevel(time)
         
-        var accv = CGVectorMake(0, 0)
+        var accv = CGVector(dx: 0, dy: 0)
         if (accelerating) {
             if (!isAtUpperBorder()) {
                 sprite.zRotation = max(sprite.zRotation + angularAcceleration, 1)
@@ -185,7 +185,7 @@ class Sloth {
         
         updateRotation()
         
-        let g = CGVectorMake(0, -(gravity * CGFloat(time)))
+        let g = CGVector(dx: 0, dy: -(gravity * CGFloat(time)))
         var resultant = velocity + accv
         
         if (resultant.length() > speedLimit) {

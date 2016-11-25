@@ -72,7 +72,7 @@ extension CGVector {
 }
 
 
-func angleBetweenPoints(first: CGPoint, second: CGPoint) -> CGFloat {
+func angleBetweenPoints(_ first: CGPoint, second: CGPoint) -> CGFloat {
     let delta = second - first
     return atan2(delta.y, delta.x)
 }
@@ -82,12 +82,12 @@ struct Queue<T> {
     
     var items = [T]()
     
-    mutating func enqueue(item: T) {
+    mutating func enqueue(_ item: T) {
         items.append(item)
     }
     
-    mutating func dequeue(item: T) {
-        items.removeAtIndex(0)
+    mutating func dequeue(_ item: T) {
+        items.remove(at: 0)
     }
     
 }
@@ -97,7 +97,7 @@ func randomCoefficient() -> CGFloat {
     return CGFloat(arc4random()) / CGFloat(UInt32.max)
 }
 
-func clamp(min: CGFloat, max: CGFloat, value: CGFloat) -> CGFloat {
+func clamp(_ min: CGFloat, max: CGFloat, value: CGFloat) -> CGFloat {
     if( value > max ) {
         return max
     } else if( value < min ) {

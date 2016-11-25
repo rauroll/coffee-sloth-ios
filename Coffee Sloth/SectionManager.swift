@@ -24,7 +24,7 @@ class SectionManager: SKNode {
     init(sections: [Section], sloth: Sloth) {
         self.sloth = sloth
         
-        self.sections = sections.sort{$0.weight > $1.weight}
+        self.sections = sections.sorted{$0.weight > $1.weight}
         maxWeight = self.sections.first!.weight
         
         
@@ -38,7 +38,7 @@ class SectionManager: SKNode {
         
     }
     
-    func update(time: CFTimeInterval) {
+    func update(_ time: CFTimeInterval) {
 
         
         let dx = sloth.velocity.dx * CGFloat(time)
@@ -46,7 +46,8 @@ class SectionManager: SKNode {
         if(children.isEmpty) {
             enqueue(EmptySection(width: screenBounds.width * 0.5));
         } else {
-            for (var i = 0; i < children.count; i++) {
+            var i = 0
+            while (i < children.count) {
                 let section = children[i] as! Section;
                 section.position.x -= dx
                 section.update(time)
@@ -60,7 +61,7 @@ class SectionManager: SKNode {
                 // if this section is further away than the viewport width remove it
                 if (section.position.x < -screenBounds.width) {
                     dequeue(section)
-                    i--
+                    i -= 1
                 }
                 
                 // check if player is inside a section
@@ -72,11 +73,13 @@ class SectionManager: SKNode {
                     section.playerIsInside = false
                     section.playerExited()
                 }
+                i += 1;
             }
         }
     }
     
-    func increaseQueue(coffeeString: Bool) {
+    func increaseQueue(_ coffeeString: Bool) {
+        print("Number of sections is: ", self.children.count)
         var offset: CGFloat = 0
         
         if let lastSection: Section? = children.last as! Section? {
@@ -88,7 +91,7 @@ class SectionManager: SKNode {
             let numberOfCoffees: Int = Int(randomCoefficient() * 8) + 2
             let curve = randomCoefficient() * 0.5 + 0.1
 
-            for (var i = 0; i < numberOfCoffees; i++) {
+            for _ in 0 ..< numberOfCoffees {
                 let coffeeSection = CoffeeSection()
                 coffeeSection.position.x = offset
                 offset += coffeeSection.width
@@ -104,25 +107,25 @@ class SectionManager: SKNode {
         
     }
     
-    static func increaseCoffeeStep(by: CGFloat) {
+    static func increaseCoffeeStep(_ by: CGFloat) {
         SectionManager.coffeeStep += by
     }
     
     func pickRandomSection() -> Section {
-        return zip(sections, sections.map{$0.weight * randomCoefficient()}).sort{$0.1 > $1.1}.first!.0.copy() as! Section
+        return zip(sections, sections.map{$0.weight * randomCoefficient()}).sorted{$0.1 > $1.1}.first!.0.copy() as! Section
     }
     
-    func enqueue(section: Section) {
+    func enqueue(_ section: Section) {
         section.enqueued()
         self.addChild(section)
     }
     
-    func dequeue(section: Section) {
+    func dequeue(_ section: Section) {
         section.dequeued()
         section.removeFromParent()
     }
     
-    func reset(section: Section) {
+    func reset(_ section: Section) {
         // TODO
     }
     

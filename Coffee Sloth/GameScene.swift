@@ -9,7 +9,7 @@
 import SpriteKit
 
 
-let screenBounds = UIScreen.mainScreen().bounds
+let screenBounds = UIScreen.main.bounds
 
 
 
@@ -56,7 +56,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         anchorPoint = CGPoint(x: 0, y: 0)
         
-        self.physicsWorld.gravity = CGVectorMake(0, 0)
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         
         physicsWorld.contactDelegate = self
         
@@ -91,7 +91,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(sectionManager)
     }
     
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         var playerNode, objectNode: SKNode!
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             playerNode = contact.bodyA.node
@@ -164,14 +164,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
    
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         
 
         if (lastTime == nil || gameOver) {
             lastTime = currentTime
             return
         }
-        let deltaTime = (currentTime - lastTime)
+        let deltaTime = (currentTime - lastTime) * 0.8
         lastTime = currentTime
         background.update(deltaTime, slothSpeedX: sloth.velocity.dx)
         sloth.update(deltaTime)
@@ -182,10 +182,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let location = touches.first!.locationInNode(self)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let location = touches.first!.location(in: self)
         if (gameOver) {
-            let node = nodeAtPoint(location)
+            let node = atPoint(location)
             if (node.name != nil && node.name! == "NewGame") {
                 reset()
             }
@@ -197,7 +197,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         sloth.stopAccelerating()
         sloth.checkBorders()
         

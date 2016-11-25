@@ -48,8 +48,8 @@ class Overlay: SKNode {
         newGameLabel.name = "NewGame"
         newGameLabel.fontName = "AvenirNext-Heavy"
         newGameLabel.fontSize = 50
-        newGameLabel.fontColor = UIColor.whiteColor()
-        newGameLabel.position = CGPointMake(screenBounds.width / 2, screenBounds.height * 2)
+        newGameLabel.fontColor = UIColor.white
+        newGameLabel.position = CGPoint(x: screenBounds.width / 2, y: screenBounds.height * 2)
         newGameLabel.zPosition = 100
         self.addChild(newGameLabel)
 
@@ -65,31 +65,31 @@ class Overlay: SKNode {
         addChild(score)
     }
     
-    func update(time: CFTimeInterval, sloth: Sloth) {
+    func update(_ time: CFTimeInterval, sloth: Sloth) {
         coffeeBar.update(sloth.coffeeLevel)
         score.update(time, velx: sloth.velocity.dx)
     }
     
     func gameEnded() {
-        let middlePoint = CGPointMake(screenBounds.width / 2, screenBounds.height / 2)
-        let belowMiddlePoint = CGPointMake(middlePoint.x, screenBounds.height * 0.3)
+        let middlePoint = CGPoint(x: screenBounds.width / 2, y: screenBounds.height / 2)
+        let belowMiddlePoint = CGPoint(x: middlePoint.x, y: screenBounds.height * 0.3)
         
-        let moveToMiddle = SKAction.moveTo(middlePoint, duration: 0.3)
-        moveToMiddle.timingMode = .EaseOut
-        let moveBelowScore = SKAction.moveTo(belowMiddlePoint, duration: 0.5)
-        moveBelowScore.timingMode = .EaseOut
+        let moveToMiddle = SKAction.move(to: middlePoint, duration: 0.3)
+        moveToMiddle.timingMode = .easeOut
+        let moveBelowScore = SKAction.move(to: belowMiddlePoint, duration: 0.5)
+        moveBelowScore.timingMode = .easeOut
         
-        let grayMask = SKSpriteNode(color: UIColor.blackColor(), size: CGSizeMake(screenBounds.width * 2, screenBounds.height * 2))
+        let grayMask = SKSpriteNode(color: UIColor.black, size: CGSize(width: screenBounds.width * 2, height: screenBounds.height * 2))
         grayMask.zPosition = 10
         grayMask.alpha = 0.0
         self.addChild(grayMask)
-        let fadeMaskIn = SKAction.fadeAlphaTo(0.5, duration: 0.8)
-        fadeMaskIn.timingMode = .EaseOut
+        let fadeMaskIn = SKAction.fadeAlpha(to: 0.5, duration: 0.8)
+        fadeMaskIn.timingMode = .easeOut
         
 
         
-        grayMask.runAction(fadeMaskIn)
-        score.runAction(moveToMiddle, completion: {self.newGameLabel.runAction(moveBelowScore)})
+        grayMask.run(fadeMaskIn)
+        score.run(moveToMiddle, completion: {self.newGameLabel.run(moveBelowScore)})
         
         
         
