@@ -15,8 +15,8 @@ class Background: SKNode {
     let floorBgSprites = SKNode()
     
     
-    let farTexture: SKTexture! = SKTexture(imageNamed: "bg-far")
-    let midTexture: SKTexture! = SKTexture(imageNamed: "bg-mid")
+    let farTexture: SKTexture! = SKTexture(imageNamed: "bgjesus-far")
+    let midTexture: SKTexture! = SKTexture(imageNamed: "bgjesus-mid")
     let floorTexture: SKTexture! = SKTexture(imageNamed: "floor")
     
     let textures: [SKTexture]!
@@ -78,7 +78,7 @@ class Background: SKNode {
         for i in 0 ..< Int(2.0 + UIScreen.main.bounds.width / (tex.size().width)) + 1 {
             let sprite = SKSpriteNode(texture: tex)
             sprite.setScale(2.0)
-            sprite.zPosition = depth
+            sprite.zPosition = depth - 20
             sprite.position = CGPoint(x: CGFloat(i) * sprite.size.width, y: sprite.size.height / 2)
             node.addChild(sprite)
         }

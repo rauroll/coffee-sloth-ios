@@ -13,11 +13,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
     
-
-        
         super.viewWillLayoutSubviews()
-        
-        
         
         let scene = MenuScene(size: view.frame.size)
         // Configure the view.
@@ -31,8 +27,6 @@ class GameViewController: UIViewController {
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .resizeFill
         
-        
-
         skView.presentScene(scene)
         
     }

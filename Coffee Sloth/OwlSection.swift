@@ -38,11 +38,11 @@ class Owl: SKSpriteNode {
     init() {
         
         
-        let owlTexture1 = SKTexture(imageNamed: "owl1")
-        let owlTexture2 = SKTexture(imageNamed: "owl2")
-        let owlTexture3 = SKTexture(imageNamed: "owl3")
+        let owlTexture1 = SKTexture(imageNamed: "devil1")
+        let owlTexture2 = SKTexture(imageNamed: "devil2")
+        let owlTexture3 = SKTexture(imageNamed: "devil3")
         
-        let movingTextures = [owlTexture1, owlTexture2, owlTexture3]
+        let movingTextures = [owlTexture1, owlTexture2, owlTexture1, owlTexture3]
         
         for e in movingTextures {
             e.filteringMode = .nearest

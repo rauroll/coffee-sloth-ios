@@ -13,15 +13,15 @@ import SpriteKit
 class CoffeeBar: SKCropNode {
     
     let lowColor = UIColor.red
-    let highColor = UIColor.green
+    let highColor = UIColor(red:0.58, green:0.07, blue:0.00, alpha:1.0)
     
     var mask: SKSpriteNode!
     var background: SKSpriteNode!
     
     
     override init() {
-        mask = SKSpriteNode(color: highColor, size: CGSize(width: screenBounds.width / 3, height: 20))
-        background = SKSpriteNode(color: UIColor.white, size: CGSize(width: screenBounds.width / 3, height: 20))
+        mask = SKSpriteNode(color: highColor, size: CGSize(width: screenBounds.width / 4, height: 10))
+        background = SKSpriteNode(color: UIColor.white, size: CGSize(width: screenBounds.width / 4, height: 10))
         background.zPosition = 1
         mask.zPosition = 2
         
@@ -35,7 +35,7 @@ class CoffeeBar: SKCropNode {
         
         super.init()
         
-        self.position = CGPoint(x: screenBounds.width/2 - background.size.width / 2, y: screenBounds.height - background.size.height * 2)
+        self.position = CGPoint(x: screenBounds.width/16, y: screenBounds.height - background.size.height * 2)
         
         self.addChild(background)
         self.addChild(mask)
@@ -51,6 +51,7 @@ class CoffeeBar: SKCropNode {
     func update(_ slothCoffeeLevel: CGFloat) {
         let full: CGFloat = 100
         let p = slothCoffeeLevel / full
+        
         
         setProgress(p)
         

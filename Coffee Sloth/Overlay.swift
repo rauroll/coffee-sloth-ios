@@ -44,9 +44,9 @@ class Overlay: SKNode {
     }
     
     func createNewGameLabel() {
-        newGameLabel = SKLabelNode(text: "Play again!")
+        newGameLabel = SKLabelNode(text: "Born again?")
         newGameLabel.name = "NewGame"
-        newGameLabel.fontName = "AvenirNext-Heavy"
+        newGameLabel.fontName = "Courier"
         newGameLabel.fontSize = 50
         newGameLabel.fontColor = UIColor.white
         newGameLabel.position = CGPoint(x: screenBounds.width / 2, y: screenBounds.height * 2)

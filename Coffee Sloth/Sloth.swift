@@ -14,12 +14,10 @@ import SpriteKit
 class Sloth {
     
     
-    // GRAPHICS
-    
+    // GRAPHICS    
     var sprite: SKSpriteNode!
     var accelerationAnimation: SKAction
     var noAccelerationTexture: SKTexture
-    
     
     // MOVEMENTS
     var accelerating = false
@@ -29,9 +27,6 @@ class Sloth {
     let accelerationForce: CGFloat = 3000
     // 4000
     
-
-    
-
     var velocity = CGVector(dx: 0, dy: 0)
     
     var angularAcceleration: CGFloat = 1.0
@@ -41,10 +36,6 @@ class Sloth {
     let maxCoffeeLevel: CGFloat = 100
     var coffeeLevel: CGFloat = 100
     
-    
-    
-    
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
     }
@@ -53,37 +44,30 @@ class Sloth {
         
         coffeeLevel = 100
         
-        let slothTexture1 = SKTexture(imageNamed: "sloth1")
-        let slothTexture2 = SKTexture(imageNamed: "sloth2")
-        let slothTexture3 = SKTexture(imageNamed: "sloth3")
-        let slothTexture4 = SKTexture(imageNamed: "sloth4")
+        let slothTexture1 = SKTexture(imageNamed: "babyjesus1")
+        let slothTexture2 = SKTexture(imageNamed: "babyjesus2")
+        let slothTexture3 = SKTexture(imageNamed: "babyjesus3")
+        //let slothTexture4 = SKTexture(imageNamed: "babyjesus2")
         
-        noAccelerationTexture = SKTexture(imageNamed: "slothsprite_nofire")
+        noAccelerationTexture = SKTexture(imageNamed: "babyjesus1")
         
         sprite = SKSpriteNode(texture: noAccelerationTexture)
         
-        let movingTextures = [slothTexture1, slothTexture2, slothTexture3, slothTexture4]
+        let movingTextures = [slothTexture1, slothTexture2, slothTexture3/*, slothTexture4*/]
         for e in movingTextures {
             e.filteringMode = .nearest
         }
         noAccelerationTexture.filteringMode = .nearest
         
-        
-        
         let movingAnimation = SKAction.animate(with: movingTextures, timePerFrame: 0.1)
         accelerationAnimation = SKAction.repeatForever(movingAnimation)
-        
-        
-        
+    
         sprite.setScale(1.6)
         sprite.position = CGPoint(x: 0.2 * size.width, y: 0.7 * size.height)
         
         sprite.zPosition = 1
         
-        
         sprite.zRotation = 1
-        
-        
         
         sprite.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.height / 2)
         sprite.physicsBody?.isDynamic = true
@@ -94,12 +78,7 @@ class Sloth {
         sprite.physicsBody?.collisionBitMask = worldCategory | boundsCategory | coffeeCategory | enemyCategory
         sprite.physicsBody?.contactTestBitMask = worldCategory | boundsCategory | coffeeCategory | enemyCategory
         
-        
-        
-        
-        
-        
-        
+    
     }
     
     func reset() {
@@ -107,7 +86,6 @@ class Sloth {
     }
     
 
-    
     func drinkCoffee(_ coffee: Coffee) {
         coffeeLevel = min(maxCoffeeLevel, coffeeLevel + 10)
         coffee.removeFromParent()
@@ -123,12 +101,14 @@ class Sloth {
     
     func stopAccelerating() {
         accelerating = false
+        print("Stopping acceleration animation")
         sprite.removeAction(forKey: "fire")
         sprite.texture = noAccelerationTexture
         
     }
     func accelerate() {
         accelerating = true
+        print("Running acceleration animation")
         sprite.run(accelerationAnimation, withKey: "fire")
     }
     
@@ -137,7 +117,6 @@ class Sloth {
             sprite.zRotation = clamp( -1, max: 0.5, value: velocity.dy * ( velocity.dy < 0 ? 0.003 : 0.001 ) )
         }
     }
-    
     
     // Not in use with current sloth control implementation
     func rotateTo(_ rot: CGFloat) {
@@ -149,8 +128,19 @@ class Sloth {
     func accelerationVector() -> CGVector {
         let x = cos(sprite.zRotation) * accelerationForce
         let y = sin(sprite.zRotation) * accelerationForce
-        
         return CGVector(dx: x, dy: y)
+    }
+    
+    func magnetoAccelerationVector(force: CGFloat) -> CGVector {
+        let forceCoefficient: CGFloat = 5
+        let scaledForce = forceCoefficient * force
+        let x = cos(sprite.zRotation) * scaledForce
+        let y = sin(sprite.zRotation) * scaledForce
+        return CGVector(dx: x, dy: y)
+    }
+    
+    func isUsingMagneticAcceleration(force: CGFloat) -> Bool {
+        return force > 300
     }
     
     
@@ -171,19 +161,28 @@ class Sloth {
         }
     }
     
-    func update(_ time: CFTimeInterval) {
+    func update(_ time: CFTimeInterval, readings: [CGFloat]) {
         
         reduceCoffeeLevel(time)
         
         var accv = CGVector(dx: 0, dy: 0)
-        if (accelerating) {
+//        if (accelerating) {
+//            if (!isAtUpperBorder()) {
+//                sprite.zRotation = max(sprite.zRotation + angularAcceleration, 1)
+//            }
+//            accv = accelerationVector() * CGFloat(time)
+//        }
+        
+        if accelerating {
             if (!isAtUpperBorder()) {
                 sprite.zRotation = max(sprite.zRotation + angularAcceleration, 1)
             }
-            accv = accelerationVector() * CGFloat(time)
+            accv = magnetoAccelerationVector(force: readings[3]) * CGFloat(time)
+            
         }
         
         updateRotation()
+        
         
         let g = CGVector(dx: 0, dy: -(gravity * CGFloat(time)))
         var resultant = velocity + accv

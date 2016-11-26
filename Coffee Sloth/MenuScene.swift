@@ -11,13 +11,10 @@ import SpriteKit
 
 class MenuScene: SKScene {
     
-    
     var buttons: [SKLabelNode]!
     
     override init(size: CGSize) {
         super.init(size: size)
-        
-        
         
         let playButton = SKLabelNode(text: "Play")
         playButton.name = "Play"
@@ -29,16 +26,13 @@ class MenuScene: SKScene {
         
         for b in buttons {
             b.fontSize = 30
-            b.fontName = "AvenirNext-Heavy"
+            b.fontName = "Courier"
             b.fontColor = UIColor.white
             b.alpha = 0.9
             b.zPosition = 5
             b.position = CGPoint(x: size.width / 2, y: (CGFloat(buttons.count) - 1 - CGFloat(buttons.index(of: b)!)) * buttonHeight + size.height * 0.2)
             self.addChild(b)
         }
-        
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

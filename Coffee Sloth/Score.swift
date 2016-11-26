@@ -21,7 +21,7 @@ class Score: SKLabelNode {
         
         self.text = "\(score)"
         self.fontSize = 30
-        self.fontName = "AvenirNext-Heavy"
+        self.fontName = "Courier"
         self.fontColor = UIColor.white
         self.position = CGPoint(x: screenBounds.width * 0.8 , y: 20)
         

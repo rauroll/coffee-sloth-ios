@@ -20,7 +20,7 @@ import AVFoundation
     static func setup() {
         
         AudioPlayer.backgroundPlayer = AVAudioPlayer()
-        let backgroundMusicUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "theme", ofType: "mp3")!)
+        let backgroundMusicUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "background-music", ofType: "mp3")!)
         let coffeeSoundUrl1 = URL(fileURLWithPath: Bundle.main.path(forResource: "coffee1", ofType: "mp3")!)
         let coffeeSoundUrl2 = URL(fileURLWithPath: Bundle.main.path(forResource: "coffee2", ofType: "mp3")!)
         let coffeeSoundUrl3 = URL(fileURLWithPath: Bundle.main.path(forResource: "coffee3", ofType: "mp3")!)

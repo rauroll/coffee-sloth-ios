@@ -20,7 +20,7 @@ class Coffee: SKSpriteNode {
     }
     
     init() {
-        let coffeeTexture = SKTexture(imageNamed: "coffee")
+        let coffeeTexture = SKTexture(imageNamed: "wine")
         super.init(texture: coffeeTexture, color: UIColor.clear, size: coffeeTexture.size())
 //        self.texture = texture
         self.setScale(0.5)

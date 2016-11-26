@@ -14,7 +14,8 @@ let screenBounds = UIScreen.main.bounds
 
 
 let airResistance: CGFloat = 0.3
-let gravity: CGFloat = 700
+let gravity: CGFloat = 2000
+let magneticForceLimit: CGFloat = 100
 //900
 
 let slothCategory: UInt32 = 1 << 0
@@ -30,12 +31,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastTime: CFTimeInterval!
     var speedCoefficient: CGFloat = 3
     var sloth: Sloth!
+    var god: God!
     var overlay: Overlay!
     
     
     var gameOver: Bool
     
     var sectionManager: SectionManager!
+    var magnetometer: BLMagnetometer!
     
     var audioPlayer: AudioPlayer!
     
@@ -52,7 +55,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         super.init(size: size)
         
-    
+        magnetometer = BLMagnetometer()
+        magnetometer.startUpdates()
+        magnetometer.calibrate()
+        
+        
         
         anchorPoint = CGPoint(x: 0, y: 0)
         
@@ -63,6 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background = Background()
         
         sloth = Sloth(size: size)
+        god = God(size: size)
         
         overlay = Overlay()
         
@@ -76,6 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //self.addChild(sectionManager)
         self.addChild(sloth.sprite)
+        self.addChild(god.sprite)
         self.addChild(background)
         self.addChild(overlay)
         
@@ -85,8 +94,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func initSectionManager() {
         sectionManager = SectionManager(sections: [
-            HorizontalBarSection(),
-            OwlSection(sloth: sloth)
+            //HorizontalBarSection(),
+            OwlSection(sloth: sloth),
+            EmptySection()
             ], sloth: sloth)
         self.addChild(sectionManager)
     }
@@ -152,11 +162,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.removeAllChildren()
         undoGameOver()
         sloth = Sloth(size: self.size)
+        god = God(size: self.size)
         initSectionManager()
         background = Background()
         overlay = Overlay()
         
         self.addChild(sloth.sprite)
+        self.addChild(god.sprite)
         self.addChild(background)
         self.addChild(overlay)
 
@@ -172,12 +184,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         let deltaTime = (currentTime - lastTime) * 0.8
+        let magnetoReadings = (magnetometer.latestMagnetometerData() as NSArray).map{$0 as! CGFloat}
         lastTime = currentTime
         background.update(deltaTime, slothSpeedX: sloth.velocity.dx)
-        sloth.update(deltaTime)
+        checkForMagneticAcceleration(currentForce: magnetoReadings[3])
+        sloth.update(deltaTime, readings: magnetoReadings)
+        god.update(deltaTime)
         sectionManager.update(deltaTime)
         overlay.update(deltaTime, sloth: sloth)
         
+    }
+    
+    func checkForMagneticAcceleration(currentForce: CGFloat) {
+        currentForce > magneticForceLimit && sloth.hasCaffeineInBlood() ? handleMagneticAcceleration() : magneticAccelerationEnded()
+    }
+    
+    func handleMagneticAcceleration() {
+        if !sloth.accelerating {
+            sloth.accelerate()
+        }
+    }
+    
+    func magneticAccelerationEnded() {
+        if sloth.accelerating {
+            sloth.stopAccelerating()
+            sloth.checkBorders()
+        }
     }
     
     
