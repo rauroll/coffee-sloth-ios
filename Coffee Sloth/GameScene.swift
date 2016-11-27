@@ -235,10 +235,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if section.getSectionType() == "OwlSection" {
                     let owlSection = section as! OwlSection
                     let owl = owlSection.owl!
-                    let actualOwlPosition = section.position.x + owl.position.x
-                    let actualGodPosition = god.sprite.position.x
+                    let actualOwlPosition = section.position + owl.position
+                    let actualGodPosition = god.sprite.position
                     print("OWL POSITION: ", actualOwlPosition, ", GOD POSITION: ", actualGodPosition)
-                    if fabs(actualOwlPosition - actualGodPosition) < 75 && owl.alive {
+                    if fabs(actualOwlPosition.x - actualGodPosition.x) < 100 && owl.alive {
+                        god.rainTerror()
+                        
+                        let particlePosition = CGPoint(x: actualOwlPosition.x, y: screenBounds.height / 2)
+                        
+                        let path = Bundle.main.path(forResource: "lightning", ofType: "sks")
+                        let fireparticle = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as! SKEmitterNode
+                        
+                        fireparticle.position = particlePosition
+                        fireparticle.name = "lightning"
+                        fireparticle.targetNode = self.scene
+                        fireparticle.zPosition = 10000
+                        self.addChild(fireparticle)
+                        
+                        fireparticle.run(
+                            SKAction.sequence([
+                                SKAction.wait(forDuration: 0.1),
+                                SKAction.removeFromParent(),
+                                ])
+                        )
+
+                        
                         owl.kill()
                     }
                 }

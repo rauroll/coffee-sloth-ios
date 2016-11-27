@@ -23,7 +23,7 @@ class God {
     let movementRadius: CGPoint
     var startingPosition: CGPoint
     
-//    var attackAnimation: SKAction!
+    var attackAnimation: SKAction!
     
     var speechCounter: CGFloat = 4.5
     
@@ -44,8 +44,12 @@ class God {
         let godTexture = SKTexture(imageNamed: "god")
         godTexture.filteringMode = .nearest
         
-//        let attackTextures =
-//        attackAnimation = SKAction.animate(with: movingTextures, timePerFrame: 0.1)
+        let attackTexture1 = SKTexture(imageNamed: "godslaying1")
+        let attackTexture2 = SKTexture(imageNamed: "godslaying2")
+        let attackTexture3 = SKTexture(imageNamed: "godslaying3")
+        
+        let attackTextures = [attackTexture1, attackTexture2, attackTexture3, attackTexture2, godTexture]
+        attackAnimation = SKAction.animate(with: attackTextures, timePerFrame: 0.1)
         
         sprite = SKSpriteNode(texture: godTexture)
         
@@ -76,7 +80,7 @@ class God {
     }
     
     func rainTerror() {
-        
+        sprite.run(attackAnimation)
     }
     
     func update(_ time: CFTimeInterval) {

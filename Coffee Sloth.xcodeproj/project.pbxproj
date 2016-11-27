@@ -18,6 +18,7 @@
 		473956CA1DEA223400258ADD /* fireparticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 473956C91DEA223400258ADD /* fireparticle.sks */; };
 		473956CE1DEAE16B00258ADD /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 473956CC1DEAE16B00258ADD /* smoke.sks */; };
 		473956CF1DEAE16B00258ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473956CD1DEAE16B00258ADD /* Assets.xcassets */; };
+		473956D11DEAEB5500258ADD /* lightning.sks in Resources */ = {isa = PBXBuildFile; fileRef = 473956D01DEAEB5500258ADD /* lightning.sks */; };
 		473E92621B3C7DCA000F3BAD /* coffee1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */; };
 		473E92641B3C7DCA000F3BAD /* coffee2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */; };
 		473E92661B3C7DCA000F3BAD /* coffee3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E92411B3C7DCA000F3BAD /* coffee3.mp3 */; };
@@ -95,6 +96,7 @@
 		473956C91DEA223400258ADD /* fireparticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fireparticle.sks; sourceTree = "<group>"; };
 		473956CC1DEAE16B00258ADD /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
 		473956CD1DEAE16B00258ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		473956D01DEAEB5500258ADD /* lightning.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = lightning.sks; sourceTree = "<group>"; };
 		473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee1.mp3; sourceTree = "<group>"; };
 		473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee2.mp3; sourceTree = "<group>"; };
 		473E92411B3C7DCA000F3BAD /* coffee3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee3.mp3; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		473956CB1DEA223B00258ADD /* particles */ = {
 			isa = PBXGroup;
 			children = (
+				473956D01DEAEB5500258ADD /* lightning.sks */,
 				473956C91DEA223400258ADD /* fireparticle.sks */,
 				473956CC1DEAE16B00258ADD /* smoke.sks */,
 				473956CD1DEAE16B00258ADD /* Assets.xcassets */,
@@ -532,6 +535,7 @@
 				473E92761B3C7DCA000F3BAD /* main-background.jpg in Resources */,
 				473E92811B3C7DCA000F3BAD /* logo.psd in Resources */,
 				4772880B1B3C6BA9009BA1C5 /* Main.storyboard in Resources */,
+				473956D11DEAEB5500258ADD /* lightning.sks in Resources */,
 				473956C81DEA101E00258ADD /* background-music.mp3 in Resources */,
 				473E92771B3C7DCA000F3BAD /* muted.png in Resources */,
 				473956CF1DEAE16B00258ADD /* Assets.xcassets in Resources */,

@@ -24,6 +24,7 @@ class SpeechBubble: SKNode {
         speechLabel.setScale(0.7)
         speechLabel.fontColor = UIColor.black
         speechLabel.position.y = -15
+        speechLabel.fontSize = 30
         
         bubbleNode = SKSpriteNode(texture: bubbleTexture)
         bubbleNode.setScale(0.65)
