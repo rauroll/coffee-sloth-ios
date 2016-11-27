@@ -23,6 +23,8 @@ class God {
     let movementRadius: CGPoint
     var startingPosition: CGPoint
     
+//    var attackAnimation: SKAction!
+    
     var speechCounter: CGFloat = 4.5
     
     let quotes = [
@@ -41,6 +43,9 @@ class God {
         
         let godTexture = SKTexture(imageNamed: "god")
         godTexture.filteringMode = .nearest
+        
+//        let attackTextures =
+//        attackAnimation = SKAction.animate(with: movingTextures, timePerFrame: 0.1)
         
         sprite = SKSpriteNode(texture: godTexture)
         
@@ -68,6 +73,10 @@ class God {
         let duration = SKAction.wait(forDuration: 2)
         let remove = SKAction.run({() in self.speechBubble!.removeFromParent()})
         self.sprite.run(SKAction.sequence([myFunction, duration, remove]))
+    }
+    
+    func rainTerror() {
+        
     }
     
     func update(_ time: CFTimeInterval) {

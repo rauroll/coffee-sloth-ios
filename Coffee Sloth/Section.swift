@@ -17,7 +17,7 @@ class Section: SKNode {
     var playerIsInside = false
     var width: CGFloat! = nil
     var weight: CGFloat = 1
-    var sectionType: String! = nil
+    var sectionType: String! = "Section"
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
@@ -44,6 +44,10 @@ class Section: SKNode {
     
     func playerExited() {
         //preconditionFailure("This method has to be overridden")
+    }
+    
+    func getSectionType() -> String {
+        return sectionType
     }
 
     

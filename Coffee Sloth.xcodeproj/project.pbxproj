@@ -15,6 +15,9 @@
 		473956BF1DE9F7E500258ADD /* God.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473956BE1DE9F7E500258ADD /* God.swift */; };
 		473956C51DEA0DD900258ADD /* SpeechBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473956C41DEA0DD900258ADD /* SpeechBubble.swift */; };
 		473956C81DEA101E00258ADD /* background-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473956C71DEA101E00258ADD /* background-music.mp3 */; };
+		473956CA1DEA223400258ADD /* fireparticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 473956C91DEA223400258ADD /* fireparticle.sks */; };
+		473956CE1DEAE16B00258ADD /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 473956CC1DEAE16B00258ADD /* smoke.sks */; };
+		473956CF1DEAE16B00258ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473956CD1DEAE16B00258ADD /* Assets.xcassets */; };
 		473E92621B3C7DCA000F3BAD /* coffee1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */; };
 		473E92641B3C7DCA000F3BAD /* coffee2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */; };
 		473E92661B3C7DCA000F3BAD /* coffee3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473E92411B3C7DCA000F3BAD /* coffee3.mp3 */; };
@@ -89,6 +92,9 @@
 		473956BE1DE9F7E500258ADD /* God.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = God.swift; path = "Coffee Sloth/God.swift"; sourceTree = "<group>"; };
 		473956C41DEA0DD900258ADD /* SpeechBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechBubble.swift; sourceTree = "<group>"; };
 		473956C71DEA101E00258ADD /* background-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "background-music.mp3"; sourceTree = "<group>"; };
+		473956C91DEA223400258ADD /* fireparticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fireparticle.sks; sourceTree = "<group>"; };
+		473956CC1DEAE16B00258ADD /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
+		473956CD1DEAE16B00258ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		473E923D1B3C7DCA000F3BAD /* coffee1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee1.mp3; sourceTree = "<group>"; };
 		473E923F1B3C7DCA000F3BAD /* coffee2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee2.mp3; sourceTree = "<group>"; };
 		473E92411B3C7DCA000F3BAD /* coffee3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffee3.mp3; sourceTree = "<group>"; };
@@ -191,9 +197,20 @@
 			name = babyjesus;
 			sourceTree = "<group>";
 		};
+		473956CB1DEA223B00258ADD /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				473956C91DEA223400258ADD /* fireparticle.sks */,
+				473956CC1DEAE16B00258ADD /* smoke.sks */,
+				473956CD1DEAE16B00258ADD /* Assets.xcassets */,
+			);
+			name = particles;
+			sourceTree = "<group>";
+		};
 		473E923B1B3C7DCA000F3BAD /* asset */ = {
 			isa = PBXGroup;
 			children = (
+				473956CB1DEA223B00258ADD /* particles */,
 				473E92841B3C8A62000F3BAD /* sprites.atlas */,
 				473E923C1B3C7DCA000F3BAD /* audio */,
 				473E924B1B3C7DCA000F3BAD /* image */,
@@ -492,9 +509,11 @@
 				473E92791B3C7DCA000F3BAD /* owl2.png in Resources */,
 				473E92801B3C7DCA000F3BAD /* unmuted.png in Resources */,
 				473E926C1B3C7DCA000F3BAD /* owl.mp3 in Resources */,
+				473956CA1DEA223400258ADD /* fireparticle.sks in Resources */,
 				473E92701B3C7DCA000F3BAD /* back.png in Resources */,
 				473E92721B3C7DCA000F3BAD /* bg-mid.png in Resources */,
 				473E927D1B3C7DCA000F3BAD /* slothsprite3.png in Resources */,
+				473956CE1DEAE16B00258ADD /* smoke.sks in Resources */,
 				473E927A1B3C7DCA000F3BAD /* owl3.png in Resources */,
 				473E92741B3C7DCA000F3BAD /* coffee.png in Resources */,
 				477288101B3C6BA9009BA1C5 /* LaunchScreen.storyboard in Resources */,
@@ -515,6 +534,7 @@
 				4772880B1B3C6BA9009BA1C5 /* Main.storyboard in Resources */,
 				473956C81DEA101E00258ADD /* background-music.mp3 in Resources */,
 				473E92771B3C7DCA000F3BAD /* muted.png in Resources */,
+				473956CF1DEAE16B00258ADD /* Assets.xcassets in Resources */,
 				473E92681B3C7DCA000F3BAD /* death.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

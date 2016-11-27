@@ -21,11 +21,13 @@ import SpriteKit
 class Owl: SKSpriteNode {
     
     static let orbitalRadius = screenBounds.height / 3
-    static let attackVelocity: CGFloat = 250
+    static let attackVelocity: CGFloat = 100
     static let attackRange: CGFloat = screenBounds.height * 0.8
     static let maxFollowTime: CFTimeInterval = 10
     
     var playerSeen = false
+    var alive = true
+    var actualPosition: CGPoint = CGPoint(x: -500, y: -500)
     var orbitalStepper: CGFloat = 0
     var followCounter: CFTimeInterval = 0
     
@@ -70,14 +72,19 @@ class Owl: SKSpriteNode {
         
         
     }
+
     
     func update(_ time: CFTimeInterval, slothPosition: CGPoint, sectionPosition: CGPoint) {
         
         let t = CGFloat(time)
         let actualOwlPosition = (self.position + sectionPosition)
+        actualPosition = actualOwlPosition
 
         let distance = (slothPosition - actualOwlPosition).length()
         
+        if !alive {
+            return
+        }
         
         if (distance <= Owl.attackRange && !playerSeen) {
             playerSeen = true
@@ -109,6 +116,33 @@ class Owl: SKSpriteNode {
         
     }
     
+    func kill() {
+        
+        alive = false
+        let path = Bundle.main.path(forResource: "fireparticle", ofType: "sks")
+        let fireparticle = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as! SKEmitterNode
+        
+        fireparticle.position = CGPoint(x: 0, y: -self.size.height / 2)
+        fireparticle.name = "fireparticle"
+        fireparticle.targetNode = self.scene
+        fireparticle.zPosition = 10000
+        self.addChild(fireparticle)
+        
+        self.run(
+            SKAction.sequence([
+                SKAction.wait(forDuration: 0.3),
+                SKAction.removeFromParent(),
+            ])
+        )
+        
+        fireparticle.run(
+            SKAction.sequence([
+                SKAction.wait(forDuration: 0.3),
+                SKAction.removeFromParent(),
+                ])
+        )
+        
+    }
     
     
     func velocityVector(_ rotation: CGFloat) -> CGVector {
@@ -127,6 +161,7 @@ class OwlSection: Section {
     static var sloth: Sloth!
     var owl: Owl!
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -136,9 +171,6 @@ class OwlSection: Section {
         OwlSection.sloth = sloth
         self.init()
         
-
-        
-        
         
     }
     
@@ -146,6 +178,8 @@ class OwlSection: Section {
         owl = Owl()
         
         super.init()
+        
+        self.sectionType = "OwlSection"
         
         
         self.width = 1000

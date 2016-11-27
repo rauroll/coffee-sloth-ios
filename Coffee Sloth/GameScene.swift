@@ -224,9 +224,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         
-        if (sloth.hasCaffeineInBlood()) {
-            sloth.accelerate()
+        else {
+            
+//            let owlSections = sectionManager.children.map{$0 as! Section}
+//                .filter{$0.getSectionType() == "OwlSection"}
+//                .map{$0 as! OwlSection}
+//                .filter{$0.owl.alive}
+            for child in sectionManager.children {
+                let section = child as! Section
+                if section.getSectionType() == "OwlSection" {
+                    let owlSection = section as! OwlSection
+                    let owl = owlSection.owl!
+                    let actualOwlPosition = section.position.x + owl.position.x
+                    let actualGodPosition = god.sprite.position.x
+                    print("OWL POSITION: ", actualOwlPosition, ", GOD POSITION: ", actualGodPosition)
+                    if fabs(actualOwlPosition - actualGodPosition) < 75 && owl.alive {
+                        owl.kill()
+                    }
+                }
+            }
+            
         }
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
